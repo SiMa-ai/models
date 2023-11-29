@@ -1,6 +1,6 @@
 # README #
 
- v3 VikasSiMa.ai.ai's Model Zoo 
+SiMa.ai.ai's Model Zoo 
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
