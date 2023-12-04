@@ -1,3 +1,3 @@
 # README #
 
-SiMa.ai.ai's Model Zoo 
+SiMa.ai's Model Zoo 
