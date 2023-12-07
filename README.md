@@ -8,8 +8,8 @@ Welcome to SiMa.ai's Model Zoo.
 # Getting Pretrained Models #
 
 ## Torchvision ##
-## Torchv ##
-## Torchvision ##
+## ONNX Model Zoo ##
+## OpenVINO ##
 
 # Model Calibration/Compilation #
 
