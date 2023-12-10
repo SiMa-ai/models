@@ -130,11 +130,6 @@ Welcome to SiMa.ai's Model Zoo! SiMa.ai offers Palete software to efficiently ru
 |  yolo-v4-tf   |  TensorFlow  |  1, 416, 416, 3  |  195  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_yolo_v4_tf.html ) |
 |  yolo-v4-tiny-tf   |  Keras  |  1, 416, 416, 3  |  966  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_yolo_v4_tiny_tf.html ) |
 |  yolof   |  PyTorch  |  1, 3, 608, 608  |  109  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_yolof.html ) |
-|  Resnet18_AIMET   |  PyTorch  |  1, 3, 224, 224  |  1114  |  [Torchvision Link]( https://pytorch.org/vision/0.11/models.html#classification ) |
-|  Resnet50_AIMET   |  PyTorch  |  1, 3, 224, 224  |  774  |  [Torchvision Link]( https://pytorch.org/vision/0.11/models.html#classification ) |
-|  Resnet101_AIMET   |  PyTorch  |  1, 3, 224, 224  |  528  |  [Torchvision Link]( https://pytorch.org/vision/0.11/models.html#classification ) |
-|  Regnet_x_3_2gf_AIMET   |  PyTorch  |  1, 224, 224, 3  |  865  |  [Torchvision Link]( https://pytorch.org/vision/0.11/models.html#classification ) |
-|  ResNeXt101_AIMET   |  PyTorch  |  1, 224, 224, 3  |  351  |  [Torchvision Link]( https://pytorch.org/vision/0.11/models.html#classification ) |
 |  zfnet512-9  |  Onnx  |  1, 3, 224, 224  |  393  |  [ONNX Zoo Link]( https://github.com/onnx/onnx-tensorflow/wiki/ModelZoo-Status-(tag=v1.9.0)#24-zfnet-512 ) |
 
 # Getting Pretrained Models #
