@@ -1,7 +1,7 @@
 ![alt text](https://sima.ai/wp-content/uploads/2022/01/SiMaAI_Logo_Trademarked_Digital_FullColor_Large.svg)
 # README #
 
-Welcome to SiMa.ai's Model Zoo.  
+Welcome to SiMa.ai's Model Zoo! SiMa.ai offers Palete software to efficiently run machine learning software on it. This repository contains instructions on how to download some representative models, their quantization/compilation scripts and model binaries that can be used by SiMa.ai's MLSoC and its companion platforms. This model zoo is provided as an educational tool to familiarize with SiMa.ai's software toolchains and developer workflow.   
 
 # Model List #
 
