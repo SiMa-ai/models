@@ -139,6 +139,25 @@ SiMa.ai offers Palette software to efficiently run machine learning software. Th
 |  ResNeXt101_AIMET   |  PyTorch  |  1, 224, 224, 3  |  351  |  [Torchvision Link]( https://pytorch.org/vision/0.11/models.html#classification ) |  | 
 |  zfnet512-9  |  Onnx  |  1, 3, 224, 224  |  393  |  [ONNX Zoo Link]( https://github.com/onnx/onnx-tensorflow/wiki/ModelZoo-Status-(tag=v1.9.0)#24-zfnet-512 ) |  | 
 
+# Palette Setup #
+Installation of Palette software with command-line interface (CLI) option is required for all the steps listed below. This can be downloaded from [SiMa.ai website](https://developer.sima.ai/login?step=signIn&_gl=1*1a8w2o4*_ga*MTc1ODQwODQxMS4xNzAxOTAwMTM3*_ga_BRMYJE3DCD*MTcwMjI2MTYxOC4zLjAuMTcwMjI2MTYxOC42MC4wLjA.).
+
+After downloading the Palette CLI SDK zip file, it can be unarchived and CLI docker container can be installed using steps below (below steps are verified on Linux Ubuntu system).
+
+```
+user@palette-host-5:~/Downloads/palette$ unzip SiMa_CLI_1.1.0_master_B5.zip 
+Archive:  SiMa_CLI_1.1.0_master_B5.zip
+   creating: 1.1.0_master_B5/
+   creating: 1.1.0_master_B5/sima-cli/
+  inflating: 1.1.0_master_B5/sima-cli/simaclisdk_1_1_0_master_B5.tar  
+  inflating: 1.1.0_master_B5/sima-cli/start.sh  
+  inflating: 1.1.0_master_B5/sima-cli/uninstall.sh  
+  inflating: 1.1.0_master_B5/sima-cli/install.sh  
+  inflating: 1.1.0_master_B5/sima-cli/release-notes.txt  
+  inflating: 1.1.0_master_B5/sima-cli/install_dependencies.sh  
+  inflating: 1.1.0_master_B5/sima-cli/stop.sh 
+```
+
 ## Torchvision ##
 ## ONNX Model Zoo ##
 ## OpenVINO ##
