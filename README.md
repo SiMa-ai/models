@@ -294,7 +294,7 @@ The model is now successully downloaded from Torchvision repository and ready fo
 Intel's OpenVINO model zoo offers a helper tool `omz_downloader` to download the pretrained models to local system. This comes as part of `openvino-dev` package installable via `pip` command (assuming the `python` and `pip` are already installed).
 
 ```
-```
+
 vikas_paliwal@instance-5:~$ pip install openvino-dev
 Collecting openvino-dev
   Using cached openvino_dev-2023.2.0-13089-py3-none-any.whl (5.9 MB)
@@ -305,7 +305,6 @@ Installing collected packages: openvino-dev
 Successfully installed openvino-dev-2023.2.0
 
 
-```
 ```
 
 Once `openvino-dev` package is installed, locate where the `omz_downloader` binary is (mostly in `.local/bin` folder of the user's home directory). Download a pretrained OpenVINO model zoo model using the `omz_downloader` command below. E.g. for model Erfnet, it will look similar to:
