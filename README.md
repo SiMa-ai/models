@@ -160,7 +160,7 @@ Archive:  SiMa_CLI_1.1.0_master_B5.zip
 
 ```
 
-The Palette CLI unarchived folder is now available and you can view its contents using `ls`. Below steps were done for Palette 1.1 release so you may see the folder `1.1.0_master_B5` or something similar. Enter this folder and enter the `sima-cli` folder in it. Here on listing the contents, most of installation (`install.sh`), start container (`start.sh`) and stop container (`stop.sh`) scripts must be visible. To kicstart the install procedure, issue the `install.sh` command and command line outputs must look similar to below.
+The Palette CLI unarchived folder is now available and its contents can be viewed using `ls`. Below steps were done for Palette 1.1 release so, for this release, the folder `1.1.0_master_B5` or something similar must be present. Enter the `1.1.0_master_B5` folder and the `sima-cli` folder in it. Here on listing the contents, scripts for installation (`install.sh`), starting the container (`start.sh`) and stopping the container (`stop.sh`) scripts should be visible. To kickstart the install procedure, issue the `install.sh` command and command line outputs must look similar to below.
 
 ```
 
@@ -225,7 +225,7 @@ Your local work directory '/home/vikas_paliwal/workspace' has been mounted to '/
 
 ```
 
-At this point, the Palette CLI container is successfully installed. The container can now be started using `start.sh` command and you should then be inside the Palette CLI container as shown below.
+At this point, the Palette CLI container is successfully installed. The container can now be started anytime using `start.sh` command and then all CLI commands can be run from inside the Palette CLI container as shown below.
 
 ```
 
@@ -234,12 +234,28 @@ Checking if the container is already running...
  ==> Container is already running. Proceeding to start an interactive shell.
 root@59d339853bd1:/home# 
 
+
 ```
+
+# Downloading the Models #
+
+SiMa.ai model zoo currently offers sample models from repositories like Torchvison, ONNX model zoo and OpenVINO. These repositories offer pretrained models in floating-point 32-bit (FP32) format that eventually needs to be quantized and compiled for SiMa.ai's MLSoC. To this end, certain helper scripts are provided as part of this repository that fetch the models from original pretrained model repositories and optionally convert them to a format readily accepted by Palette CLI tool. Here we describe instructions for getting the models from these repositories.
+
+It must be mentioned that users of Palette CLI may need to review the model details, original research papers, datasets used etc. For these purposes, links to the pretrained model repositories for each of the available sample models is provided. Users are encouraged to review the information available on these repositories to gain a better understandin of model details. 
+
 ## Torchvision ##
+
+Torchvision's `torchvision.models` subpackage offers ML model architectures along with pretrained weights. This repository provides helper Python script [`torchvision_to_onnx.py`](torchvision_to_onnx.py) to download the Torchvision model(s). 
+
+In another tab of Linux terminal, from the host 
+
+In order to download a model from Torchvision, this script can be run anywhe
+
 ## ONNX Model Zoo ##
 ## OpenVINO ##
 
 # Model Calibration/Compilation #
+The source code for these helper scripts can be reviewed using links provided in above **Model List** section.
 
 # Performance Estimation #
 
