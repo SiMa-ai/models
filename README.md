@@ -145,6 +145,7 @@ Installation of Palette software with command-line interface (CLI) option is req
 After downloading the Palette CLI SDK zip file, it can be unarchived and CLI docker container can be installed using steps below (below steps are verified on Linux Ubuntu system).
 
 ```
+
 user@palette-host-5:~/Downloads/palette$ unzip SiMa_CLI_1.1.0_master_B5.zip 
 Archive:  SiMa_CLI_1.1.0_master_B5.zip
    creating: 1.1.0_master_B5/
@@ -156,8 +157,84 @@ Archive:  SiMa_CLI_1.1.0_master_B5.zip
   inflating: 1.1.0_master_B5/sima-cli/release-notes.txt  
   inflating: 1.1.0_master_B5/sima-cli/install_dependencies.sh  
   inflating: 1.1.0_master_B5/sima-cli/stop.sh 
+
 ```
 
+The Palette CLI unarchived folder is now available and you can view its contents using `ls`. Below steps were done for Palette 1.1 release so you may see the folder `1.1.0_master_B5` or something similar. Enter this folder and enter the `sima-cli` folder in it. Here on listing the contents, most of installation (`install.sh`), start container (`start.sh`) and stop container (`stop.sh`) scripts must be visible. To kicstart the install procedure, issue the `install.sh` command and command line outputs must look similar to below.
+
+```
+
+vikas_paliwal@instance-5:~/Downloads/palette$ ls
+1.1.0_master_B5  SiMa_CLI_1.1.0_master_B5.zip
+vikas_paliwal@instance-5:~/Downloads/palette$ cd 1.1.0_master_B5/
+vikas_paliwal@instance-5:~/Downloads/palette/1.1.0_master_B5$ ls
+sima-cli
+vikas_paliwal@instance-5:~/Downloads/palette/1.1.0_master_B5$ cd sima-cli/
+vikas_paliwal@instance-5:~/Downloads/palette/1.1.0_master_B5/sima-cli$ ls
+install.sh  install_dependencies.sh  release-notes.txt  simaclisdk_1_1_0_master_B5.tar  start.sh  stop.sh  uninstall.sh
+vikas_paliwal@instance-5:~/Downloads/palette/1.1.0_master_B5/sima-cli$ ./install.sh 
+Docker daemon is not running.
+If you have Docker installed, make sure it is running and try again.
+vikas_paliwal@instance-5:~/Downloads/palette/1.1.0_master_B5/sima-cli$ sudo ./install.sh 
+Checking if SiMa CLI version 1.1.0_master_B5 is already installed...
+Do you want to reinstall it? [y/N] y
+./install.sh: line 28: netstat: command not found
+Enter work directory [/home/vikas_paliwal/workspace]: 
+Loading Docker image version 1.1.0_master_B5...
+6c3e7df31590: Loading layer [==================================================>]  75.17MB/75.17MB
+d0757cff9a50: Loading layer [==================================================>]  1.456GB/1.456GB
+d363a5d9797a: Loading layer [==================================================>]   2.89MB/2.89MB
+5f70bf18a086: Loading layer [==================================================>]  1.024kB/1.024kB
+1192b82b51e1: Loading layer [==================================================>]  245.3MB/245.3MB
+f49434ad8f02: Loading layer [==================================================>]  3.363MB/3.363MB
+7ad3f4bc4344: Loading layer [==================================================>]  3.364GB/3.364GB
+e30ef4fd0a5e: Loading layer [==================================================>]  714.8kB/714.8kB
+61d4e7a65eb0: Loading layer [==================================================>]  52.22MB/52.22MB
+87e980650c89: Loading layer [==================================================>]  547.8kB/547.8kB
+5e1c8475cb15: Loading layer [==================================================>]  103.8MB/103.8MB
+f2c4ca8dd483: Loading layer [==================================================>]  47.57MB/47.57MB
+fea17013a693: Loading layer [==================================================>]  103.8MB/103.8MB
+ac1a9ed8be83: Loading layer [==================================================>]  103.8MB/103.8MB
+1be0dedb722a: Loading layer [==================================================>]   2.56kB/2.56kB
+60cb090989cb: Loading layer [==================================================>]   5.12kB/5.12kB
+fe2946c9c0cb: Loading layer [==================================================>]   7.68kB/7.68kB
+7b1ae9dd2fda: Loading layer [==================================================>]  9.728kB/9.728kB
+53dd9ecce6a2: Loading layer [==================================================>]  24.58kB/24.58kB
+7054a48d829c: Loading layer [==================================================>]   2.56kB/2.56kB
+f17c57fd7d3c: Loading layer [==================================================>]  8.565GB/8.565GB
+b2681143c79e: Loading layer [==================================================>]  73.73kB/73.73kB
+7c24547aa974: Loading layer [==================================================>]  144.2MB/144.2MB
+a6d76c5f0c1b: Loading layer [==================================================>]  1.408GB/1.408GB
+392ea411a290: Loading layer [==================================================>]  101.4kB/101.4kB
+e6c0f8f854be: Loading layer [==================================================>]  3.584kB/3.584kB
+c2124b1e3113: Loading layer [==================================================>]  4.608kB/4.608kB
+Loaded image: simaclisdk:1.1.0_master_B5
+Checking SiMa SDK Bridge Network...
+SiMa SDK Bridge Network found.
+59d339853bd13cb7f69911fc5689d272d8dec8407f316417ca4b59f82b3fb884
+Successfully copied 2.56kB to /home/vikas_paliwal/Downloads/palette/1.1.0_master_B5/sima-cli/passwd.txt
+Successfully copied 3.07kB to simaclisdk_1_1_0_master_B5:/etc/passwd
+Successfully copied 2.56kB to /home/vikas_paliwal/Downloads/palette/1.1.0_master_B5/sima-cli/shadow.txt
+Successfully copied 2.56kB to simaclisdk_1_1_0_master_B5:/etc/shadow
+Successfully copied 2.05kB to /home/vikas_paliwal/Downloads/palette/1.1.0_master_B5/sima-cli/group.txt
+Successfully copied 2.56kB to simaclisdk_1_1_0_master_B5:/etc/group
+Successfully copied 2.56kB to /home/vikas_paliwal/Downloads/palette/1.1.0_master_B5/sima-cli/sudoers.txt
+Successfully copied 2.56kB to simaclisdk_1_1_0_master_B5:/etc/sudoers
+Installation successful. To log in to the Docker container, please use the './start.sh' script
+Your local work directory '/home/vikas_paliwal/workspace' has been mounted to '/home/docker/sima-cli'
+
+```
+
+At this point, the Palette CLI container is successfully installed. The container can now be started using `start.sh` command and you should then be inside the Palette CLI container as shown below.
+
+```
+
+vikas_paliwal@instance-5:~/Downloads/palette/1.1.0_master_B5/sima-cli$ sudo ./start.sh
+Checking if the container is already running...
+ ==> Container is already running. Proceeding to start an interactive shell.
+root@59d339853bd1:/home# 
+
+```
 ## Torchvision ##
 ## ONNX Model Zoo ##
 ## OpenVINO ##
