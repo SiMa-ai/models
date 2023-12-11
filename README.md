@@ -245,14 +245,95 @@ It must be mentioned that users of Palette CLI may need to review the model deta
 
 ## Torchvision ##
 
-Torchvision's `torchvision.models` subpackage offers ML model architectures along with pretrained weights. This repository provides helper Python script [`torchvision_to_onnx.py`](torchvision_to_onnx.py) to download the Torchvision model(s). 
+[Torchvision](https://pytorch.org/vision/stable/models.html)'s `torchvision.models` subpackage offers ML model architectures along with pretrained weights. This repository provides helper Python script [`torchvision_to_onnx.py`](torchvision_to_onnx.py) to download the Torchvision model(s). 
 
-In another tab of Linux terminal, from the host 
+Download the [torchvision_to_onnx.py](torchvision_to_onnx.py) to the local system and, from the folder containing this file, issue below command to move the file inside container using the standard construct of [docker copy command](https://docs.docker.com/engine/reference/commandline/cp/).
 
-In order to download a model from Torchvision, this script can be run anywhe
+```
+
+vikas_paliwal@instance-5:~/Downloads/sima-ai-qa-5cacd287b0ad/sima-cli/libs$ sudo docker cp  torchvision_to_onnx.py 59d339853bd1:/home
+Successfully copied 3.58kB to 59d339853bd1:/home
+
+```
+
+From inside the Palette CLI container, this command can be used to fetch and convert a model from list above that comes from Torchvision. E.g. to download a model like `resnet101`, the script can be used as shown below. Upon listing the folder content using `ls`, the newly downloaded pretrained model `resnet101.onnx` must be visible, as below.
+
+```
+
+root@59d339853bd1:/home# python3 torchvision_to_onnx.py --model_name resnet101
+Using cache found in /root/.cache/torch/hub/pytorch_vision_v0.16.0
+/usr/local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/usr/local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet101_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet101_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Downloading: "https://download.pytorch.org/models/resnet101-63fe2227.pth" to /root/.cache/torch/hub/checkpoints/resnet101-63fe2227.pth
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 171M/171M [00:01<00:00, 115MB/s]
+Before torch.onnx.export tensor([[[[ 0.4423, -1.3834, -2.8390,  ..., -1.9122, -0.2462,  1.2536],
+          [ 0.5714,  0.8633,  1.2179,  ...,  1.5677, -0.7458, -0.3277],
+          [-2.2480, -0.7592,  0.3460,  ...,  0.5916, -1.0860,  0.9374],
+          ...,
+          [ 1.2745,  0.5513,  1.6247,  ...,  0.4885,  1.1178, -1.2456],
+          [-0.1993,  0.5694,  0.2662,  ..., -0.6218,  2.1003,  0.1678]]]])
+============== Diagnostic Run torch.onnx.export version 2.0.1+cpu ==============
+verbose: False, log level: Level.ERROR
+======================= 0 NONE 0 NOTE 0 WARNING 0 ERROR ========================
+
+After torch.onnx.export
+root@59d339853bd1:/home# ls
+docker  resnet101.onnx  root  torchvision_to_onnx.py
+
+
+```
+
+The model is now successully downloaded from Torchvision repository and ready for usage with Palette CLI tools.
 
 ## ONNX Model Zoo ##
 ## OpenVINO ##
+**Instructions similar to below are also shown on Intel's OpenVINO pages and user is encouraged to review them as needed.**
+
+Intel's OpenVINO model zoo offers a helper tool `omz_downloader` to download the pretrained models to local system. This comes as part of `openvino-dev` package installable via `pip` command (assuming the `python` and `pip` are already installed).
+
+```
+```
+vikas_paliwal@instance-5:~$ pip install openvino-dev
+Collecting openvino-dev
+  Using cached openvino_dev-2023.2.0-13089-py3-none-any.whl (5.9 MB)
+...
+Installing collected packages: openvino-dev
+  WARNING: The scripts accuracy_check, convert_annotation, mo, omz_converter, omz_data_downloader, omz_downloader, omz_info_dumper, omz_quantizer and pot are installed in '/home/vikas_paliwal/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed openvino-dev-2023.2.0
+
+
+```
+```
+
+Once `openvino-dev` package is installed, locate where the `omz_downloader` binary is (mostly in `.local/bin` folder of the user's home directory). Download a pretrained OpenVINO model zoo model using the `omz_downloader` command below. E.g. for model Erfnet, it will look similar to:
+
+
+```
+vikas_paliwal@instance-5:~/.local/bin$ ls
+accuracy_check      check-node              f2py     mo                   omz_downloader   ovc       tqdm
+backend-test-tools  convert-caffe2-to-onnx  f2py3    normalizer           omz_info_dumper  pot
+benchmark_app       convert-onnx-to-caffe2  f2py3.8  omz_converter        omz_quantizer    public
+check-model         convert_annotation      isympy   omz_data_downloader  opt_in_out       torchrun
+vikas_paliwal@instance-5:~/.local/bin$ ./omz_downloader --name erfnet
+################|| Downloading erfnet ||################
+
+========== Downloading /home/vikas_paliwal/.local/bin/public/erfnet/erfnet.onnx
+... 100%, 8060 KB, 75709 KB/s, 0 seconds passed
+
+vikas_paliwal@instance-5:~/.local/bin$ ls
+accuracy_check      check-node              f2py     mo                   omz_downloader   ovc       tqdm
+backend-test-tools  convert-caffe2-to-onnx  f2py3    normalizer           omz_info_dumper  pot
+benchmark_app       convert-onnx-to-caffe2  f2py3.8  omz_converter        omz_quantizer    public
+check-model         convert_annotation      isympy   omz_data_downloader  opt_in_out       torchrun
+vikas_paliwal@instance-5:~/.local/bin$ ls public/erfnet/
+erfnet.onnx
+
+```
+
+As shown above the actual pretrained model file gets downloaded in `public/[MODEL_NAME]` folder e.g. `public/erfnet` folder for the erfnet model.
 
 # Model Calibration/Compilation #
 The source code for these helper scripts can be reviewed using links provided in above **Model List** section.
