@@ -146,7 +146,7 @@ After downloading the Palette CLI SDK zip file, it can be unarchived and CLI doc
 
 ```
 
-user@palette-host-5:~/Downloads/palette$ unzip SiMa_CLI_1.1.0_master_B5.zip 
+vikas_paliwal@instance-5:~/Downloads/palette$ unzip SiMa_CLI_1.1.0_master_B5.zip 
 Archive:  SiMa_CLI_1.1.0_master_B5.zip
    creating: 1.1.0_master_B5/
    creating: 1.1.0_master_B5/sima-cli/
@@ -288,6 +288,9 @@ docker  resnet101.onnx  root  torchvision_to_onnx.py
 The model is now successully downloaded from Torchvision repository and ready for usage with Palette CLI tools.
 
 ## ONNX Model Zoo ##
+
+TBD
+
 ## OpenVINO ##
 **Instructions similar to below are also shown on Intel's OpenVINO pages and user is encouraged to review them as needed.**
 
@@ -335,8 +338,64 @@ erfnet.onnx
 As shown above the actual pretrained model file gets downloaded in `public/[MODEL_NAME]` folder e.g. `public/erfnet` folder for the erfnet model.
 
 # Model Calibration/Compilation #
-The source code for these helper scripts can be reviewed using links provided in above **Model List** section.
+Helper script to compile the models are provided for each ML model offered through this repository. The source code for these helper scripts can be reviewed using links provided in above **Model List** section. These compiler scipts come with multiple preconfigured settings for input resolutions, calibration scheme, quantization method etc. These can be adjusted per needs and full details on how to exercise various compile options are provided in Palette CLI User Guide, available through [SiMa.ai developer zone](https://developer.sima.ai/login?step=signIn&_gl=1*1a8w2o4*_ga*MTc1ODQwODQxMS4xNzAxOTAwMTM3*_ga_BRMYJE3DCD*MTcwMjI2MTYxOC4zLjAuMTcwMjI2MTYxOC42MC4wLjA.). 
+
+After downloading the helper Python script and pretrained model as described in **Downloading the Models** section, it is important to ensure the path of model file in the helper script, referenced through `model_path` variable, is correct. 
+
+The model can be compiled from the **Palette docker** using this helper script using command format, `python3 [HELPER_SCRIPT] [PRETRAINED]`. As a sample, for the `resnet101` model downloaded as above from Torchvision, the command outputs may look similar to below.
+
+```
+root@59d339853bd1:/home# python3 resnet101.py resnet101.onnx 
+Model SDK version: 1.1.0
+Running calibration ...DONE
+2023-12-11 12:13:50,300 - afe.ir.quantization_utils - WARNING - Quantized bias was clipped, resulting in precision loss.  Model may need retraining.
+2023-12-11 12:13:50,304 - afe.ir.quantization_utils - WARNING - Quantized bias was clipped, resulting in precision loss.  Model may need retraining.
+2023-12-11 12:13:50,320 - afe.ir.quantization_utils - WARNING - Quantized bias was clipped, resulting in precision loss.  Model may need retraining.
+2023-12-11 12:13:50,373 - afe.ir.quantization_utils - WARNING - Quantized bias was clipped, resulting in precision loss.  Model may need retraining.
+2023-12-11 12:13:50,643 - afe.ir.quantization_utils - WARNING - Quantized bias was clipped, resulting in precision loss.  Model may need retraining.
+Running quantization ...DONE
+```
+
+After successful compilation, the resulting files are generated in `result/[MODEL_NAME_CALIBRATION_OPTIONS]/mpk` folder which now has `*.yaml, *.json, *.lm` generated as outputs of compilation. These files together can be used for performance estimation as described in next section.
+
+```
+root@59d339853bd1:/home# ls
+debug.log  docker  erfnet.onnx  erfnet.py  resnet101.onnx  resnet101.py  result  root  torchvision_to_onnx.py
+root@59d339853bd1:/home# cd result/resnet101_asym_True_per_ch_True/mpk
+root@59d339853bd1:/home/result/resnet101_asym_True_per_ch_True/mpk# ls
+resnet101_mpk.tar.gz
+root@59d339853bd1:/home/result/resnet101_asym_True_per_ch_True/mpk# tar zxvf resnet101_mpk.tar.gz 
+resnet101_mpk.json
+resnet101_stage1_mla_stats.yaml
+resnet101_stage1_mla.lm
+root@59d339853bd1:/home/result/resnet101_asym_True_per_ch_True/mpk# ls
+resnet101_mpk.json  resnet101_mpk.tar.gz  resnet101_stage1_mla.lm  resnet101_stage1_mla_stats.yaml
+
+```
+
+
 
 # Performance Estimation #
 
+Using the compiled model using steps above or a precompiled model provided in the repository, it is possible to measure the frames-per-second metric using an actual SiMa.ai developer kit. This requires the developer kit be properly configured as described in **Accelerator Mode** chapter of Palette user guide.
+
+TBD -- need to verify, @Vikas
+```
+python3 accelerator-mode-demos/devkit_inference_models/network_eval/network_eval.py --model_file_path accelerator-modedemos/
+devkit_inference_models/model_files/model_files/vgg11/vgg11_MLA_0.lm --mpk_json_path
+accelerator-mode-demos/devkit_inference_models/model_files/model_files/vgg11/
+vgg11.json --dv_host 192.168.135.170 --image_size 224 224 3
+```
+
+
+# License #
+The primary license for the models in the [SiMa.ai Model Zoo](https://github.com/SiMa-ai/models) is the BSD 3-Clause License, see [LICENSE](LICENSE.txt). However:
+
+
+The following models are licensed under the Apache 2.0 license, and not the BSD 3-Clause License:
+TBD
+The following models are licensed under the MIT license, and not the BSD 3-Clause License:
+TBD
+
+Certain models may be subject to additional restrictions and/or terms. To the extent a LICENSE.txt file is provided for a particular model, please review the LICENSE.txt file carefully as you are responsible for your compliance with such restrictions and/or terms.
 
