@@ -3,7 +3,7 @@
 
 Welcome to SiMa.ai's Model Zoo! 
 
-SiMa.ai offers Palette software to efficiently run machine learning software. This repository contains instructions on how to download some representative models and quantize/compile them with provided scripts. Additionally, precompiled model binaries are provided as reference, which can be used for performance estimation and creation of complete video pipeline running on SiMa.ai's MLSoC and companion platforms. This model zoo is provided as an educational tool to familiarize with SiMa.ai's software toolchains and developer workflow.   
+SiMa.ai offers [Palette software](https://bit.ly/41q4tQT) to efficiently run machine learning software. This repository contains instructions on how to download some representative models and quantize/compile them with provided scripts. Additionally, precompiled model binaries are provided as reference, which can be used for performance estimation and creation of complete video pipeline running on SiMa.ai's MLSoC and companion platforms. This model zoo is provided as an educational tool to familiarize with SiMa.ai's software toolchains and developer workflow.   
 
 # Model List #
 
