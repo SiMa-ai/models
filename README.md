@@ -389,9 +389,48 @@ The primary license for the models in the [SiMa.ai Model Zoo](https://github.com
 
 
 The following models are licensed under the Apache 2.0 license, and not the BSD 3-Clause License:
-TBD
+`efficientnet-b0_tensorflow`
+`efficientnet-b0-pytorch`
+`efficientnet-v2-b0`
+`efficientnet-v2-s`
+`googlenet-v1-tf`
+`human-pose-estimation-3d-0001`
+`mobilenet-v1-0.25-128`
+`mobilenet-v1-1.0-224-tf`
+`mobilenet-v2-1.0-224`
+`mobilenet-v2-1.4-224`
+`nfnet-f0`
+`resnet-50-tf`
+`single-human-pose-estimation-0001`
+`bvlcalexnet-7`
+`caffenet-9`
+`densenet-9`
+`efficientnet-lite4-11`
+`googlenet-9`
+`mnist-8`
+`rcnn-ilsvrc13-9`
+`resnet50-v1-7`
+`resnet50-v2-7`
+`squeezenet1.1-7`
+`vgg19-bn-7`
+`zfnet512-9`
+
+
 The following models are licensed under the MIT license, and not the BSD 3-Clause License:
-TBD
+`ctdet_coco_dlav0_512`
+`erfnet`
+`higher-hrnet-w32-human-pose-estimation`
+`mobilenet-yolo-v4-syg`
+`regnetx-3.2gf`
+`repvgg-a0`
+`repvgg-b1`
+`repvgg-b3`
+`yolo-v2-tiny-tf`
+`yolo-v3-tf`
+`yolo-v3-tiny-tf`
+`yolo-v4-tf`
+`yolo-v4-tiny-tf`
+`yolof`
 
 Certain models may be subject to additional restrictions and/or terms. To the extent a LICENSE.txt file is provided for a particular model, please review the LICENSE.txt file carefully as you are responsible for your compliance with such restrictions and/or terms.
 
