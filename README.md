@@ -205,24 +205,15 @@ Running quantization ...DONE
 
 - After successful compilation, the resulting files are generated in `result/[MODEL_NAME_CALIBRATION_OPTIONS]/mpk` folder which now has `*.yaml, *.json, *.lm` generated as outputs of compilation. These files together can be used for performance estimation as described in next section.
 ```
-root@59d339853bd1:/home# ls
-debug.log             densenet121.onnx  densenet121_stage1_mla.lm          docker  root
-densenet121_mpk.json  densenet121.py    densenet121_stage1_mla_stats.yaml  result  torchvision_to_onnx.py
-root@59d339853bd1:/home# cd result/
-root@59d339853bd1:/home/result# ls
-densenet121_asym_True_per_ch_True  
-root@59d339853bd1:/home/result# cd densenet121_asym_True_per_ch_True/
-root@59d339853bd1:/home/result/densenet121_asym_True_per_ch_True# ls
+vikas_paliwal@9bb247385914:/home$ ls
+debug.log  docker  models  models.zip  result  scripts	torchvision_to_onnx.py	vikas_paliwal
+vikas_paliwal@9bb247385914:/home$ ls result/
+densenet121_asym_True_per_ch_True
+vikas_paliwal@9bb247385914:/home$ ls result/densenet121_asym_True_per_ch_True/
 mpk
-root@59d339853bd1:/home/result/densenet121_asym_True_per_ch_True# cd mpk
-root@59d339853bd1:/home/result/densenet121_asym_True_per_ch_True/mpk# ls
-densenet121_mpk.tar.gz
-root@59d339853bd1:/home/result/densenet121_asym_True_per_ch_True/mpk# tar zxvf densenet121_mpk.tar.gz 
-densenet121_mpk.json
-densenet121_stage1_mla_stats.yaml
-densenet121_stage1_mla.lm
-root@59d339853bd1:/home/result/densenet121_asym_True_per_ch_True/mpk# ls
-densenet121_mpk.json  densenet121_mpk.tar.gz  densenet121_stage1_mla.lm  densenet121_stage1_mla_stats.yaml
+vikas_paliwal@9bb247385914:/home$ ls result/densenet121_asym_True_per_ch_True/mpk
+densenet121_mpk.tar.gz	densenet121_stage1_mla_compressed.mlc  densenet121_stage1_mla.ifm.mlc  densenet121_stage1_mla.mlc  densenet121_stage1_mla.ofm_chk.mlc
+
 ```
 
 
