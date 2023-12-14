@@ -107,20 +107,26 @@ At this point, the Palette CLI container is successfully installed. The containe
 
 ```
 
-vikas_paliwal@instance-5:~/Downloads/palette/1.1.0_master_B5/sima-cli$ sudo ./start.sh
+vikas_paliwal@instance-5:~/Downloads/1.1.0_master_B40/sima-cli$ ./start.sh
 Checking if the container is already running...
  ==> Container is already running. Proceeding to start an interactive shell.
-root@59d339853bd1:/home# 
+vikas_paliwal@9bb247385914:/home$ 
 
 
 ```
 
 # Downloading the Models #
 
-SiMa.ai model zoo currently offers sample models from repositories like Torchvison, ONNX model zoo and OpenVINO. These repositories offer pretrained models in floating-point 32-bit (FP32) format that eventually needs to be quantized and compiled for SiMa.ai's MLSoC. To this end, certain helper scripts are provided as part of this repository that fetch the models from original pretrained model repositories and optionally convert them to a format readily accepted by Palette CLI tool. Here we describe instructions for getting the models from these repositories.
-
-It must be mentioned that users of Palette CLI may need to review the model details, original research papers, datasets used etc. For these purposes, links to the pretrained model repositories for each of the available sample models is provided. Users are encouraged to review the information available on these repositories to gain a better understandin of model details. 
-
+SiMa.ai subset of compatible models references repositories like Torchvison,
+ONNX model zoo and OpenVINO. These repositories offer pretrained models
+in floating-point 32-bit (FP32) format that need to be quantized and compiled
+for SiMa.ai&#39;s MLSoC using the Palette ModelSDK. To this end, certain helper
+scripts are provided as part of this repository that fetch the models from original
+pretrained model repositories. Here we describe instructions for getting the
+models from these repositories. To review model details, refer to the original
+papers, datasets, etc. mentioned in the corresponding source links provided.
+Bring your data and get started on running models of interest on SiMa.ai&#39;s
+MLSoC.
 ## Torchvision ##
 
 [Torchvision](https://pytorch.org/vision/stable/models.html)'s `torchvision.models` subpackage offers ML model architectures along with pretrained weights. This repository provides helper Python script [`torchvision_to_onnx.py`](torchvision_to_onnx.py) to download the Torchvision model(s). 
