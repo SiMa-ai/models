@@ -117,7 +117,7 @@ vikas_paliwal@9bb247385914:/home$
 
 # Downloading the Models #
 
-SiMa.ai subset ofˇcompatible models references repositories like Torchvison,
+SiMa.ai subset ofÔøΩcompatible models references repositories like Torchvison,
 ONNX model zoo and OpenVINO. These repositories offer pretrained models
 in floating-point 32-bit (FP32) format that need to be quantized and compiled
 for SiMa.ai&#39;s MLSoC using the Palette ModelSDK. To this end, certain helper
@@ -129,12 +129,12 @@ Bring your data and get started on running models of interest on SiMa.ai&#39;s
 MLSoC.
 ## Torchvision ##
 
-[Torchvision](https://pytorch.org/vision/stable/models.html)'s `torchvision.models`ˇsubpackage offers ML model architectures
+[Torchvision](https://pytorch.org/vision/stable/models.html)'s `torchvision.models`subpackage offers ML model architectures
 along with pretrained weights. SiMa.ai's ModelSDK can consume models from
 PyTorch that include the model topology and weights: either using TorchScript,
 or exporting the models to ONNX. Given developers familiarity with ONNX, this
 repository provides a helper script ([torchvision_to_onnx.py](torchvision_to_onnx.py)) to download
-the Torchvision model(s) and convert them to ONNX automatically.ˇ
+the Torchvision model(s) and convert them to ONNX automatically.
 
 - To use the script, either clone the repository or download and copy to the Palette CLI docker image.
 ```
@@ -152,7 +152,7 @@ Downloading: "https://github.com/pytorch/vision/zipball/v0.16.0" to /root/.cache
 /usr/local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=DenseNet121_Weights.IMAGENET1K_V1`. You can also use `weights=DenseNet121_Weights.DEFAULT` to get the most up-to-date weights.
   warnings.warn(msg)
 Downloading: "https://download.pytorch.org/models/densenet121-a639ec97.pth" to /root/.cache/torch/hub/checkpoints/densenet121-a639ec97.pth
-100%|€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€| 30.8M/30.8M [00:00<00:00, 52.6MB/s]
+100%|ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ| 30.8M/30.8M [00:00<00:00, 52.6MB/s]
 Before torch.onnx.export tensor([[[[ 1.7745,  0.7670, -0.2136,  ..., -1.5743, -0.4873,  1.0913],
           [ 0.0137, -0.9518,  0.8827,  ..., -0.1733, -0.1817,  2.1811],
           [ 0.6135, -0.9099, -2.0007,  ...,  0.3961, -0.4789, -1.5344],
@@ -178,11 +178,6 @@ densenet121.onnx  docker  torchvision_to_onnx.py
 
 
 # Model Calibration/Compilation #
-Helper script to compile the models are provided for each ML model offered through this repository. The source code for these helper scripts can be reviewed using links provided in above **Model List** section. These compiler scipts come with multiple preconfigured settings for input resolutions, calibration scheme, quantization method etc. These can be adjusted per needs and full details on how to exercise various compile options are provided in Palette CLI User Guide, available through [SiMa.ai developer zone](https://developer.sima.ai/login?step=signIn&_gl=1*1a8w2o4*_ga*MTc1ODQwODQxMS4xNzAxOTAwMTM3*_ga_BRMYJE3DCD*MTcwMjI2MTYxOC4zLjAuMTcwMjI2MTYxOC42MC4wLjA.). 
-
-After downloading the helper Python script and pretrained model as described in **Downloading the Models** section, it is important to ensure the path of model file in the helper script, referenced through `model_path` variable, is correct. 
-
-The model can be compiled from the **Palette docker** using this helper script using command format, `python3 [HELPER_SCRIPT] [PRETRAINED]`. As a sample, for the `resnet101` model downloaded as above from Torchvision, the command outputs may look similar to below.
 
 Helper scripts to compile each model are provided through this repository. The
 source code for these helper scripts can be reviewed using links in the Model
@@ -193,9 +188,9 @@ options are provided in Palette CLI User Guide, available through SiMa.ai
 developer zone. After cloning this repository, the user should download the
 model of interest, and access the corresponding script for that model. It is
 important to ensure the path of model file in the helper script, referenced
-through model_path variable, is correct. The model can be compiled from the
-Palette docker using this helper script with the command:ˇ`python3
-[HELPER_SCRIPT]`
+through model_path variable, is correct. 
+
+- The model can be compiled from the Palette docker using this helper script with the command:`python3 [HELPER_SCRIPT]`
 
 ```
 root@59d339853bd1:/home# python3 densenet121.py densenet121.onnx
@@ -207,7 +202,7 @@ Running quantization ...DONE
 
 ```
 
-After successful compilation, the resulting files are generated in `result/[MODEL_NAME_CALIBRATION_OPTIONS]/mpk` folder which now has `*.yaml, *.json, *.lm` generated as outputs of compilation. These files together can be used for performance estimation as described in next section.
+- After successful compilation, the resulting files are generated in `result/[MODEL_NAME_CALIBRATION_OPTIONS]/mpk` folder which now has `*.yaml, *.json, *.lm` generated as outputs of compilation. These files together can be used for performance estimation as described in next section.
 
 ```
 root@59d339853bd1:/home# ls
