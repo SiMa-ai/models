@@ -117,7 +117,7 @@ vikas_paliwal@9bb247385914:/home$
 
 # Downloading the Models #
 
-SiMa.ai subset ofТ compatible models references repositories like Torchvison,
+SiMa.ai subset ofџcompatible models references repositories like Torchvison,
 ONNX model zoo and OpenVINO. These repositories offer pretrained models
 in floating-point 32-bit (FP32) format that need to be quantized and compiled
 for SiMa.ai&#39;s MLSoC using the Palette ModelSDK. To this end, certain helper
@@ -129,49 +129,52 @@ Bring your data and get started on running models of interest on SiMa.ai&#39;s
 MLSoC.
 ## Torchvision ##
 
-[Torchvision](https://pytorch.org/vision/stable/models.html)'s `torchvision.models` subpackage offers ML model architectures along with pretrained weights. This repository provides helper Python script [`torchvision_to_onnx.py`](torchvision_to_onnx.py) to download the Torchvision model(s). 
+[Torchvision](https://pytorch.org/vision/stable/models.html)'s `torchvision.models`џsubpackage offers ML model architectures
+along with pretrained weights. SiMa.ai's ModelSDK can consume models from
+PyTorch that include the model topology and weights: either using TorchScript,
+or exporting the models to ONNX. Given developers familiarity with ONNX, this
+repository provides a helper script ([torchvision_to_onnx.py](torchvision_to_onnx.py)) to download
+the Torchvision model(s) and convert them to ONNX automatically.џ
 
-Download the [torchvision_to_onnx.py](torchvision_to_onnx.py) to the local system and, from the folder containing this file, issue below command to move the file inside container using the standard construct of [docker copy command](https://docs.docker.com/engine/reference/commandline/cp/).
-
+- To use the script, either clone the repository or download and copy to the Palette CLI docker image.
+```
+vikas_paliwal@instance-5:~/Downloads/1.1.0_master_B40/sima-cli$ docker cp  ~/Downloads/torchvision_to_onnx.py 9bb247385914:/home
+Successfully copied 3.58kB to 9bb247385914:/home
 ```
 
-vikas_paliwal@instance-5:~/Downloads/sima-ai-qa-5cacd287b0ad/sima-cli/libs$ sudo docker cp  torchvision_to_onnx.py 59d339853bd1:/home
-Successfully copied 3.58kB to 59d339853bd1:/home
-
+- From inside the Palette CLI container, the following command can be used to download and convert models:
 ```
 
-From inside the Palette CLI container, this command can be used to fetch and convert a model from list above that comes from Torchvision. E.g. to download a model like `densenet121`, the script can be used as shown below. Upon listing the folder content using `ls`, the newly downloaded pretrained model `resnet101.onnx` must be visible, as below.
-
-```
-
-root@59d339853bd1:/home# python3 torchvision_to_onnx.py --model-name densenet121
-usage: torchvision_to_onnx.py [-h] --model_name MODEL_NAME
-torchvision_to_onnx.py: error: the following arguments are required: --model_name
-root@59d339853bd1:/home# python3 torchvision_to_onnx.py --model_name densenet121
-Using cache found in /root/.cache/torch/hub/pytorch_vision_v0.16.0
+vikas_paliwal@9bb247385914:/home$ sudo python3 torchvision_to_onnx.py --model_name densenet121
+Downloading: "https://github.com/pytorch/vision/zipball/v0.16.0" to /root/.cache/torch/hub/v0.16.0.zip
 /usr/local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
   warnings.warn(
 /usr/local/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=DenseNet121_Weights.IMAGENET1K_V1`. You can also use `weights=DenseNet121_Weights.DEFAULT` to get the most up-to-date weights.
   warnings.warn(msg)
-Before torch.onnx.export tensor([[[[ 0.2556, -1.1689, -0.9834,  ..., -0.6764, -0.7731, -0.1609],
-          [-0.4004,  0.3737, -0.1782,  ..., -0.0773,  0.8424, -1.0558],
-          [-0.0491, -0.0103, -0.6932,  ...,  1.8154,  0.4333,  1.4905],
+Downloading: "https://download.pytorch.org/models/densenet121-a639ec97.pth" to /root/.cache/torch/hub/checkpoints/densenet121-a639ec97.pth
+100%|лллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл| 30.8M/30.8M [00:00<00:00, 52.6MB/s]
+Before torch.onnx.export tensor([[[[ 1.7745,  0.7670, -0.2136,  ..., -1.5743, -0.4873,  1.0913],
+          [ 0.0137, -0.9518,  0.8827,  ..., -0.1733, -0.1817,  2.1811],
+          [ 0.6135, -0.9099, -2.0007,  ...,  0.3961, -0.4789, -1.5344],
           ...,
-          [-0.4963,  1.3916, -0.4413,  ..., -1.1120,  0.0762,  0.8303],
-          [ 1.5159, -0.8136, -0.3001,  ...,  0.2860,  0.6737, -1.0139],
-          [-0.2186,  0.5211, -0.3220,  ..., -0.3507,  0.6220, -0.4348]]]])
+          [-1.1500, -0.1356,  0.5894,  ..., -1.2137,  0.8792,  0.6761],
+          [-0.3458, -0.6029,  0.9585,  ...,  0.0141, -1.8495, -0.9339],
+          [-0.4006, -1.1134, -0.3972,  ..., -0.5107, -0.8084, -1.4360]]]])
 ============== Diagnostic Run torch.onnx.export version 2.0.1+cpu ==============
 verbose: False, log level: Level.ERROR
 ======================= 0 NONE 0 NOTE 0 WARNING 0 ERROR ========================
 
 After torch.onnx.export
 
-root@59d339853bd1:/home# ls
-debug.log  densenet121.onnx  docker  result  root  torchvision_to_onnx.py
+```
+- The downloaded and converted model can be viewed as below.
+```
+vikas_paliwal@9bb247385914:/home$ ls
+densenet121.onnx  docker  torchvision_to_onnx.py  
 
 ```
 
-The model is now successully downloaded from Torchvision repository and ready for usage with Palette CLI tools.
+- The model is now successully downloaded from Torchvision repository and ready for usage with Palette CLI tools.
 
 
 # Model Calibration/Compilation #
@@ -180,6 +183,19 @@ Helper script to compile the models are provided for each ML model offered throu
 After downloading the helper Python script and pretrained model as described in **Downloading the Models** section, it is important to ensure the path of model file in the helper script, referenced through `model_path` variable, is correct. 
 
 The model can be compiled from the **Palette docker** using this helper script using command format, `python3 [HELPER_SCRIPT] [PRETRAINED]`. As a sample, for the `resnet101` model downloaded as above from Torchvision, the command outputs may look similar to below.
+
+Helper scripts to compile each model are provided through this repository. The
+source code for these helper scripts can be reviewed using links in the Model
+List section. These compiler scripts come with multiple preconfigured settings
+for input resolutions, calibration scheme, quantization method etc. These can
+be adjusted per needs and full details on how to exercise various compile
+options are provided in Palette CLI User Guide, available through SiMa.ai
+developer zone. After cloning this repository, the user should download the
+model of interest, and access the corresponding script for that model. It is
+important to ensure the path of model file in the helper script, referenced
+through model_path variable, is correct. The model can be compiled from the
+Palette docker using this helper script with the command:џ`python3
+[HELPER_SCRIPT]`
 
 ```
 root@59d339853bd1:/home# python3 densenet121.py densenet121.onnx
@@ -214,36 +230,6 @@ root@59d339853bd1:/home/result/densenet121_asym_True_per_ch_True/mpk# ls
 densenet121_mpk.json  densenet121_mpk.tar.gz  densenet121_stage1_mla.lm  densenet121_stage1_mla_stats.yaml
 ```
 
-
-
-# Performance Estimation #
-
-Using the compiled model using steps above or a precompiled model provided in the repository, it is possible to measure the frames-per-second metric using an actual SiMa.ai developer kit. This requires the developer kit be properly configured as described in **Accelerator Mode** chapter of Palette user guide.
-
-```
-python3 accelerator-mode-demos/devkit_inference_models/network_eval/network_eval.py --model_file_path accelerator-modedemos/
-devkit_inference_models/model_files/model_files/densenet121/densenet121_MLA_0.lm --mpk_json_path
-accelerator-mode-demos/devkit_inference_models/model_files/model_files/densenet121/
-densenet121.json --dv_host 192.168.135.170 --image_size 224 224 3
-```
-
-Upon running the command the FPS value will show up as below
-
-```
-
-Creating the Forwarding from host
-Attempt 0 to forward local port 8000 to 8000 with cmd ssh -f -N -L 8000:localhost:8000
-sima@192.168.135.170
-Attempt 0 successful to forward local port 8000 to 8000 with pid 613010
-Copying the model files to DevKit
-Attempt 0 successful to scp
-FPS = 272
-FPS = 273
-FPS = 273
-FPS = 274
-FPS = 274
-
-```
 
 # License #
 The primary license for the models in the [SiMa.ai Model Zoo](https://github.com/SiMa-ai/models) is the BSD 3-Clause License, see [LICENSE](LICENSE.txt). However:
