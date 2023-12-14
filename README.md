@@ -31,74 +31,76 @@ Installation of Palette software with command-line interface (CLI) option is req
 After downloading the Palette CLI SDK zip file, it can be unarchived and CLI docker container can be installed using steps below (below steps are verified on Linux Ubuntu system).
 
 ```
-
-
-
+vikas_paliwal@instance-5:~/Downloads$ unzip SiMa_CLI_1.1.0_master_B40.zip 
+Archive:  SiMa_CLI_1.1.0_master_B40.zip
+   creating: 1.1.0_master_B40/
+   creating: 1.1.0_master_B40/sima-cli/
+  inflating: 1.1.0_master_B40/sima-cli/start.sh  
+  inflating: 1.1.0_master_B40/sima-cli/simaclisdk_1_1_0_master_B40.tar  
+  inflating: 1.1.0_master_B40/sima-cli/uninstall.sh  
+  inflating: 1.1.0_master_B40/sima-cli/install.sh  
+  inflating: 1.1.0_master_B40/sima-cli/release-notes.txt  
+  inflating: 1.1.0_master_B40/sima-cli/install_dependencies.sh  
+  inflating: 1.1.0_master_B40/sima-cli/stop.sh 
 ```
 
 The Palette CLI unarchived folder is now available and its contents can be viewed using `ls`. Below steps were done for Palette 1.1 release so, for this release, the folder `1.1.0_master_B5` or something similar must be present. Enter the `1.1.0_master_B5` folder and the `sima-cli` folder in it. Here on listing the contents, scripts for installation (`install.sh`), starting the container (`start.sh`) and stopping the container (`stop.sh`) scripts should be visible. To kickstart the install procedure, issue the `install.sh` command and command line outputs must look similar to below.
 
 ```
 
-vikas_paliwal@instance-5:~/Downloads/palette$ ls
-1.1.0_master_B5  SiMa_CLI_1.1.0_master_B5.zip
-vikas_paliwal@instance-5:~/Downloads/palette$ cd 1.1.0_master_B5/
-vikas_paliwal@instance-5:~/Downloads/palette/1.1.0_master_B5$ ls
+vikas_paliwal@instance-5:~/Downloads$ cd 1.1.0_master_B40
+vikas_paliwal@instance-5:~/Downloads/1.1.0_master_B40$ ls
 sima-cli
-vikas_paliwal@instance-5:~/Downloads/palette/1.1.0_master_B5$ cd sima-cli/
-vikas_paliwal@instance-5:~/Downloads/palette/1.1.0_master_B5/sima-cli$ ls
-install.sh  install_dependencies.sh  release-notes.txt  simaclisdk_1_1_0_master_B5.tar  start.sh  stop.sh  uninstall.sh
-vikas_paliwal@instance-5:~/Downloads/palette/1.1.0_master_B5/sima-cli$ ./install.sh 
-Docker daemon is not running.
-If you have Docker installed, make sure it is running and try again.
-vikas_paliwal@instance-5:~/Downloads/palette/1.1.0_master_B5/sima-cli$ sudo ./install.sh 
-Checking if SiMa CLI version 1.1.0_master_B5 is already installed...
-Do you want to reinstall it? [y/N] y
+vikas_paliwal@instance-5:~/Downloads/1.1.0_master_B40$ cd sima-cli/
+vikas_paliwal@instance-5:~/Downloads/1.1.0_master_B40/sima-cli$ ls
+install.sh  install_dependencies.sh  release-notes.txt  simaclisdk_1_1_0_master_B40.tar  start.sh  stop.sh  uninstall.sh
+vikas_paliwal@instance-5:~/Downloads/1.1.0_master_B40/sima-cli$ ./install.sh
+Checking if SiMa CLI version 1.1.0_master_B40 is already installed...
 ./install.sh: line 28: netstat: command not found
 Enter work directory [/home/vikas_paliwal/workspace]: 
-Loading Docker image version 1.1.0_master_B5...
-6c3e7df31590: Loading layer [==================================================>]  75.17MB/75.17MB
-d0757cff9a50: Loading layer [==================================================>]  1.456GB/1.456GB
-d363a5d9797a: Loading layer [==================================================>]   2.89MB/2.89MB
+Loading Docker image version 1.1.0_master_B40...
+
+d3fa9d362c05: Loading layer [==================================================>]  75.18MB/75.18MB
+49e2acfe9ae4: Loading layer [==================================================>]  1.456GB/1.456GB
+562015b533e7: Loading layer [==================================================>]   2.89MB/2.89MB
 5f70bf18a086: Loading layer [==================================================>]  1.024kB/1.024kB
-1192b82b51e1: Loading layer [==================================================>]  245.3MB/245.3MB
-f49434ad8f02: Loading layer [==================================================>]  3.363MB/3.363MB
-7ad3f4bc4344: Loading layer [==================================================>]  3.364GB/3.364GB
-e30ef4fd0a5e: Loading layer [==================================================>]  714.8kB/714.8kB
-61d4e7a65eb0: Loading layer [==================================================>]  52.22MB/52.22MB
-87e980650c89: Loading layer [==================================================>]  547.8kB/547.8kB
-5e1c8475cb15: Loading layer [==================================================>]  103.8MB/103.8MB
-f2c4ca8dd483: Loading layer [==================================================>]  47.57MB/47.57MB
-fea17013a693: Loading layer [==================================================>]  103.8MB/103.8MB
-ac1a9ed8be83: Loading layer [==================================================>]  103.8MB/103.8MB
-1be0dedb722a: Loading layer [==================================================>]   2.56kB/2.56kB
-60cb090989cb: Loading layer [==================================================>]   5.12kB/5.12kB
-fe2946c9c0cb: Loading layer [==================================================>]   7.68kB/7.68kB
-7b1ae9dd2fda: Loading layer [==================================================>]  9.728kB/9.728kB
-53dd9ecce6a2: Loading layer [==================================================>]  24.58kB/24.58kB
-7054a48d829c: Loading layer [==================================================>]   2.56kB/2.56kB
-f17c57fd7d3c: Loading layer [==================================================>]  8.565GB/8.565GB
-b2681143c79e: Loading layer [==================================================>]  73.73kB/73.73kB
-7c24547aa974: Loading layer [==================================================>]  144.2MB/144.2MB
-a6d76c5f0c1b: Loading layer [==================================================>]  1.408GB/1.408GB
-392ea411a290: Loading layer [==================================================>]  101.4kB/101.4kB
-e6c0f8f854be: Loading layer [==================================================>]  3.584kB/3.584kB
-c2124b1e3113: Loading layer [==================================================>]  4.608kB/4.608kB
-Loaded image: simaclisdk:1.1.0_master_B5
+5f70bf18a086: Loading layer [==================================================>]  1.024kB/1.024kB
+1324083fec73: Loading layer [==================================================>]  3.363MB/3.363MB
+8e5cc2fcb1e8: Loading layer [==================================================>]  3.355GB/3.355GB
+43a255d427ea: Loading layer [==================================================>]  751.6kB/751.6kB
+5757c7e05d4a: Loading layer [==================================================>]  52.34MB/52.34MB
+8d4b34bc4b54: Loading layer [==================================================>]  569.9kB/569.9kB
+89f40f6da13d: Loading layer [==================================================>]  103.8MB/103.8MB
+debfb171ceab: Loading layer [==================================================>]  47.57MB/47.57MB
+e764414c5d6f: Loading layer [==================================================>]  103.8MB/103.8MB
+4bfc40f38fbb: Loading layer [==================================================>]  103.8MB/103.8MB
+c6152ea993db: Loading layer [==================================================>]   2.56kB/2.56kB
+06db2209b9b4: Loading layer [==================================================>]   5.12kB/5.12kB
+c3342c240117: Loading layer [==================================================>]   7.68kB/7.68kB
+7612cea1d7b4: Loading layer [==================================================>]  9.728kB/9.728kB
+4a1cbab15e81: Loading layer [==================================================>]  24.58kB/24.58kB
+3b62e012d34d: Loading layer [==================================================>]   2.56kB/2.56kB
+24426ea09369: Loading layer [==================================================>]  8.596GB/8.596GB
+08ecd0efb4ab: Loading layer [==================================================>]  3.584kB/3.584kB
+f91c5ae2d614: Loading layer [==================================================>]  144.2MB/144.2MB
+27397f5dacc7: Loading layer [==================================================>]  1.362GB/1.362GB
+b050726a85f0: Loading layer [==================================================>]  110.6kB/110.6kB
+5e23613dd9e4: Loading layer [==================================================>]  3.584kB/3.584kB
+5ee25ce4026c: Loading layer [==================================================>]  4.608kB/4.608kB
+Loaded image: simaclisdk:1.1.0_master_B40
 Checking SiMa SDK Bridge Network...
 SiMa SDK Bridge Network found.
-59d339853bd13cb7f69911fc5689d272d8dec8407f316417ca4b59f82b3fb884
-Successfully copied 2.56kB to /home/vikas_paliwal/Downloads/palette/1.1.0_master_B5/sima-cli/passwd.txt
-Successfully copied 3.07kB to simaclisdk_1_1_0_master_B5:/etc/passwd
-Successfully copied 2.56kB to /home/vikas_paliwal/Downloads/palette/1.1.0_master_B5/sima-cli/shadow.txt
-Successfully copied 2.56kB to simaclisdk_1_1_0_master_B5:/etc/shadow
-Successfully copied 2.05kB to /home/vikas_paliwal/Downloads/palette/1.1.0_master_B5/sima-cli/group.txt
-Successfully copied 2.56kB to simaclisdk_1_1_0_master_B5:/etc/group
-Successfully copied 2.56kB to /home/vikas_paliwal/Downloads/palette/1.1.0_master_B5/sima-cli/sudoers.txt
-Successfully copied 2.56kB to simaclisdk_1_1_0_master_B5:/etc/sudoers
+9bb247385914543099e3aa5f601e29b2b8b0d9e65dfa3f6d985bbdb568acb378
+Successfully copied 2.56kB to /home/vikas_paliwal/Downloads/1.1.0_master_B40/sima-cli/passwd.txt
+Successfully copied 3.07kB to simaclisdk_1_1_0_master_B40:/etc/passwd
+Successfully copied 2.56kB to /home/vikas_paliwal/Downloads/1.1.0_master_B40/sima-cli/shadow.txt
+Successfully copied 2.56kB to simaclisdk_1_1_0_master_B40:/etc/shadow
+Successfully copied 2.05kB to /home/vikas_paliwal/Downloads/1.1.0_master_B40/sima-cli/group.txt
+Successfully copied 2.56kB to simaclisdk_1_1_0_master_B40:/etc/group
+Successfully copied 2.56kB to /home/vikas_paliwal/Downloads/1.1.0_master_B40/sima-cli/sudoers.txt
+Successfully copied 2.56kB to simaclisdk_1_1_0_master_B40:/etc/sudoers
 Installation successful. To log in to the Docker container, please use the './start.sh' script
 Your local work directory '/home/vikas_paliwal/workspace' has been mounted to '/home/docker/sima-cli'
-
 ```
 
 At this point, the Palette CLI container is successfully installed. The container can now be started anytime using `start.sh` command and then all CLI commands can be run from inside the Palette CLI container as shown below.
