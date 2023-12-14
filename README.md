@@ -117,7 +117,7 @@ vikas_paliwal@9bb247385914:/home$
 
 # Downloading the Models #
 
-SiMa.ai subset of�compatible models references repositories like Torchvison,
+SiMa.ai subset of compatible models references repositories like Torchvison,
 ONNX model zoo and OpenVINO. These repositories offer pretrained models
 in floating-point 32-bit (FP32) format that need to be quantized and compiled
 for SiMa.ai&#39;s MLSoC using the Palette ModelSDK. To this end, certain helper
@@ -191,19 +191,19 @@ important to ensure the path of model file in the helper script, referenced
 through model_path variable, is correct. 
 
 - The model can be compiled from the Palette docker using this helper script with the command:`python3 [HELPER_SCRIPT]`
-
 ```
-root@59d339853bd1:/home# python3 densenet121.py densenet121.onnx
+vikas_paliwal@9bb247385914:/home$ sudo python3 scripts/densenet121/densenet121.py
 Model SDK version: 1.1.0
+
 Running calibration ...DONE
-2023-12-12 18:38:59,243 - afe.ir.quantization_utils - WARNING - Quantized bias was clipped, resulting in precision loss.  Model may need retraining.
-2023-12-12 18:38:59,368 - afe.ir.quantization_utils - WARNING - Quantized bias was clipped, resulting in precision loss.  Model may need retraining.
+2023-12-14 17:51:47,636 - afe.ir.quantization_utils - WARNING - Quantized bias was clipped, resulting in precision loss.  Model may need retraining.
+2023-12-14 17:51:49,554 - afe.ir.quantization_utils - WARNING - Quantized bias was clipped, resulting in precision loss.  Model may need retraining.
 Running quantization ...DONE
+
 
 ```
 
 - After successful compilation, the resulting files are generated in `result/[MODEL_NAME_CALIBRATION_OPTIONS]/mpk` folder which now has `*.yaml, *.json, *.lm` generated as outputs of compilation. These files together can be used for performance estimation as described in next section.
-
 ```
 root@59d339853bd1:/home# ls
 debug.log             densenet121.onnx  densenet121_stage1_mla.lm          docker  root
