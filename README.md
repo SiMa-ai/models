@@ -1,9 +1,19 @@
 ![alt text](https://sima.ai/wp-content/uploads/2022/01/SiMaAI_Logo_Trademarked_Digital_FullColor_Large.svg)
 # README #
 
-Welcome to SiMa.ai's Model Zoo! 
+Welcome to SiMa.ai's ML Model webpage!
 
-SiMa.ai offers [Palette software](https://bit.ly/41q4tQT) to efficiently run machine learning software. This repository contains instructions on how to download some representative models and quantize/compile them with provided scripts. Additionally, precompiled model binaries are provided as reference, which can be used for performance estimation and creation of complete video pipeline running on SiMa.ai's MLSoC and companion platforms. This model zoo is provided as an educational tool to familiarize with SiMa.ai's software toolchains and developer workflow.   
+A total of TBD models are supported on the SiMa.ai platform as part of [Palette V1.1 SDK](https://bit.ly/41q4tQT).
+
+This Model List:
+
+- Covers Multiple frameworks such as PyTorch and ONNX.
+- Draws from various repositories including Torchvision, Open Model Zoo for OpenVINO, ONNX Model Zoo
+
+For all TBD supported models, links/instructions are provided for the pre-trained FP32 models along with compilation scripts and PyTorch to ONNX conversion script.
+
+
+
 
 # Model List #
 
@@ -16,23 +26,13 @@ SiMa.ai offers [Palette software](https://bit.ly/41q4tQT) to efficiently run mac
 
 # Palette Setup #
 
-Installation of Palette software with command-line interface (CLI) option is required for all the steps listed below. This can be downloaded from [SiMa.ai website](https://developer.sima.ai/login?step=signIn&_gl=1*1a8w2o4*_ga*MTc1ODQwODQxMS4xNzAxOTAwMTM3*_ga_BRMYJE3DCD*MTcwMjI2MTYxOC4zLjAuMTcwMjI2MTYxOC42MC4wLjA.).
+Installation of Palette software with command-line interface (CLI) option is required for all the steps listed below. It can be downloaded from [SiMa.ai website](https://developer.sima.ai/login?step=signIn&_gl=1*1a8w2o4*_ga*MTc1ODQwODQxMS4xNzAxOTAwMTM3*_ga_BRMYJE3DCD*MTcwMjI2MTYxOC4zLjAuMTcwMjI2MTYxOC42MC4wLjA.).
 
 After downloading the Palette CLI SDK zip file, it can be unarchived and CLI docker container can be installed using steps below (below steps are verified on Linux Ubuntu system).
 
 ```
 
-vikas_paliwal@instance-5:~/Downloads/palette$ unzip SiMa_CLI_1.1.0_master_B5.zip 
-Archive:  SiMa_CLI_1.1.0_master_B5.zip
-   creating: 1.1.0_master_B5/
-   creating: 1.1.0_master_B5/sima-cli/
-  inflating: 1.1.0_master_B5/sima-cli/simaclisdk_1_1_0_master_B5.tar  
-  inflating: 1.1.0_master_B5/sima-cli/start.sh  
-  inflating: 1.1.0_master_B5/sima-cli/uninstall.sh  
-  inflating: 1.1.0_master_B5/sima-cli/install.sh  
-  inflating: 1.1.0_master_B5/sima-cli/release-notes.txt  
-  inflating: 1.1.0_master_B5/sima-cli/install_dependencies.sh  
-  inflating: 1.1.0_master_B5/sima-cli/stop.sh 
+
 
 ```
 
