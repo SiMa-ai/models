@@ -3,7 +3,7 @@
 
 Welcome to SiMa.ai's ML Model webpage!
 
-A total of 90+ models are supported on the SiMa.ai platform as part of [Palette V1.1 SDK](https://bit.ly/41q4tQT).
+A total of 90+ models are supported[^1] on the SiMa.ai platform as part of [Palette V1.1 SDK](https://bit.ly/41q4tQT).
 
 This Model List:
 
@@ -13,7 +13,8 @@ This Model List:
 For all 90+ supported models, links/instructions are provided for the pre-trained FP32 models along with compilation scripts and PyTorch to ONNX conversion script.
 
 
-
+[^1]: Models that compile and run fully on MLSOC- MLA ( Machine Learning Accelerator)
+engine.
 
 # Model List #
 |  Model   |  Framework  |  Input Shape  |  Pretrained Model |  Compilation script |
