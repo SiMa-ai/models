@@ -204,8 +204,7 @@ user123@9bb247385914:/home$
 
 # Downloading the Models #
 
-SiMa.ai's subset of compatible models references repositories like Torchvison,
-ONNX model zoo and OpenVINO. These repositories offer pretrained models
+SiMa.ai's subset of compatible models references repositories like Torchvison and OpenVINO. These repositories offer pretrained models
 in floating-point 32-bit (FP32) format that need to be quantized and compiled
 for SiMa.ai&#39;s MLSoC using the Palette ModelSDK. To this end, certain helper
 scripts are provided as part of this repository that fetch the models from original
