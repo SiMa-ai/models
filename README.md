@@ -3,14 +3,14 @@
 
 Welcome to SiMa.ai's ML Model webpage!
 
-A total of TBD models are supported on the SiMa.ai platform as part of [Palette V1.1 SDK](https://bit.ly/41q4tQT).
+A total of 90+ models are supported on the SiMa.ai platform as part of [Palette V1.1 SDK](https://bit.ly/41q4tQT).
 
 This Model List:
 
 - Covers Multiple frameworks such as PyTorch and ONNX.
 - Draws from various repositories including Torchvision, Open Model Zoo for OpenVINO, ONNX Model Zoo
 
-For all TBD supported models, links/instructions are provided for the pre-trained FP32 models along with compilation scripts and PyTorch to ONNX conversion script.
+For all 90+ supported models, links/instructions are provided for the pre-trained FP32 models along with compilation scripts and PyTorch to ONNX conversion script.
 
 
 
