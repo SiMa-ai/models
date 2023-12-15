@@ -276,7 +276,7 @@ source code for these helper scripts can be reviewed using links in the Model
 List section. These compiler scripts come with multiple preconfigured settings
 for input resolutions, calibration scheme, quantization method etc. These can
 be adjusted per needs and full details on how to exercise various compile
-options are provided in Palette CLI User Guide, available through SiMa.ai
+options are provided in [Palette CLI SDK](https://bit.ly/41q4tQT) User Guide, available through [SiMa.ai](https://bit.ly/41q4tQT)
 developer zone. After cloning this repository, the user should download the
 model of interest, and access the corresponding script for that model. It is
 important to ensure the path of model file in the helper script, referenced
@@ -310,7 +310,7 @@ densenet121_mpk.tar.gz	densenet121_stage1_mla_compressed.mlc  densenet121_stage1
 
 
 # License #
-The primary license for the models in the [SiMa.ai Model Zoo](https://github.com/SiMa-ai/models) is the BSD 3-Clause License, see [LICENSE](LICENSE.txt). However:
+The primary license for the models in the [SiMa.ai Model List](https://github.com/SiMa-ai/models) is the BSD 3-Clause License, see [LICENSE](LICENSE.txt). However:
 
 
 
