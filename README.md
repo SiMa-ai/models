@@ -117,7 +117,7 @@ Installation of Palette software with command-line interface (CLI) option is req
 After downloading the Palette CLI SDK zip file, it can be unarchived and CLI docker container can be installed using steps below (below steps are verified on Linux Ubuntu system).
 
 ```
-vikas_paliwal@instance-5:~/Downloads$ unzip SiMa_CLI_1.1.0_master_B40.zip 
+user123@instance-5:~/Downloads$ unzip SiMa_CLI_1.1.0_master_B40.zip 
 Archive:  SiMa_CLI_1.1.0_master_B40.zip
    creating: 1.1.0_master_B40/
    creating: 1.1.0_master_B40/sima-cli/
@@ -134,16 +134,16 @@ The Palette CLI unarchived folder is now available and its contents can be viewe
 
 ```
 
-vikas_paliwal@instance-5:~/Downloads$ cd 1.1.0_master_B40
-vikas_paliwal@instance-5:~/Downloads/1.1.0_master_B40$ ls
+user123@instance-5:~/Downloads$ cd 1.1.0_master_B40
+user123@instance-5:~/Downloads/1.1.0_master_B40$ ls
 sima-cli
-vikas_paliwal@instance-5:~/Downloads/1.1.0_master_B40$ cd sima-cli/
-vikas_paliwal@instance-5:~/Downloads/1.1.0_master_B40/sima-cli$ ls
+user123@instance-5:~/Downloads/1.1.0_master_B40$ cd sima-cli/
+user123@instance-5:~/Downloads/1.1.0_master_B40/sima-cli$ ls
 install.sh  install_dependencies.sh  release-notes.txt  simaclisdk_1_1_0_master_B40.tar  start.sh  stop.sh  uninstall.sh
-vikas_paliwal@instance-5:~/Downloads/1.1.0_master_B40/sima-cli$ ./install.sh
+user123@instance-5:~/Downloads/1.1.0_master_B40/sima-cli$ ./install.sh
 Checking if SiMa CLI version 1.1.0_master_B40 is already installed...
 ./install.sh: line 28: netstat: command not found
-Enter work directory [/home/vikas_paliwal/workspace]: 
+Enter work directory [/home/user123/workspace]: 
 Loading Docker image version 1.1.0_master_B40...
 
 d3fa9d362c05: Loading layer [==================================================>]  75.18MB/75.18MB
@@ -177,26 +177,26 @@ Loaded image: simaclisdk:1.1.0_master_B40
 Checking SiMa SDK Bridge Network...
 SiMa SDK Bridge Network found.
 9bb247385914543099e3aa5f601e29b2b8b0d9e65dfa3f6d985bbdb568acb378
-Successfully copied 2.56kB to /home/vikas_paliwal/Downloads/1.1.0_master_B40/sima-cli/passwd.txt
+Successfully copied 2.56kB to /home/user123/Downloads/1.1.0_master_B40/sima-cli/passwd.txt
 Successfully copied 3.07kB to simaclisdk_1_1_0_master_B40:/etc/passwd
-Successfully copied 2.56kB to /home/vikas_paliwal/Downloads/1.1.0_master_B40/sima-cli/shadow.txt
+Successfully copied 2.56kB to /home/user123/Downloads/1.1.0_master_B40/sima-cli/shadow.txt
 Successfully copied 2.56kB to simaclisdk_1_1_0_master_B40:/etc/shadow
-Successfully copied 2.05kB to /home/vikas_paliwal/Downloads/1.1.0_master_B40/sima-cli/group.txt
+Successfully copied 2.05kB to /home/user123/Downloads/1.1.0_master_B40/sima-cli/group.txt
 Successfully copied 2.56kB to simaclisdk_1_1_0_master_B40:/etc/group
-Successfully copied 2.56kB to /home/vikas_paliwal/Downloads/1.1.0_master_B40/sima-cli/sudoers.txt
+Successfully copied 2.56kB to /home/user123/Downloads/1.1.0_master_B40/sima-cli/sudoers.txt
 Successfully copied 2.56kB to simaclisdk_1_1_0_master_B40:/etc/sudoers
 Installation successful. To log in to the Docker container, please use the './start.sh' script
-Your local work directory '/home/vikas_paliwal/workspace' has been mounted to '/home/docker/sima-cli'
+Your local work directory '/home/user123/workspace' has been mounted to '/home/docker/sima-cli'
 ```
 
 At this point, the Palette CLI container is successfully installed. The container can now be started anytime using `start.sh` command and then all CLI commands can be run from inside the Palette CLI container as shown below.
 
 ```
 
-vikas_paliwal@instance-5:~/Downloads/1.1.0_master_B40/sima-cli$ ./start.sh
+user123@instance-5:~/Downloads/1.1.0_master_B40/sima-cli$ ./start.sh
 Checking if the container is already running...
  ==> Container is already running. Proceeding to start an interactive shell.
-vikas_paliwal@9bb247385914:/home$ 
+user123@9bb247385914:/home$ 
 
 
 ```
@@ -224,14 +224,14 @@ the Torchvision model(s) and convert them to ONNX automatically.
 
 - To use the script, either clone the repository or download and copy to the Palette CLI docker image.
 ```
-vikas_paliwal@instance-5:~/Downloads/1.1.0_master_B40/sima-cli$ docker cp  ~/Downloads/torchvision_to_onnx.py 9bb247385914:/home
+user123@instance-5:~/Downloads/1.1.0_master_B40/sima-cli$ docker cp  ~/Downloads/torchvision_to_onnx.py 9bb247385914:/home
 Successfully copied 3.58kB to 9bb247385914:/home
 ```
 
 - From inside the Palette CLI container, the following command can be used to download and convert models:
 ```
 
-vikas_paliwal@9bb247385914:/home$ sudo python3 torchvision_to_onnx.py --model_name densenet121
+user123@9bb247385914:/home$ sudo python3 torchvision_to_onnx.py --model_name densenet121
 Downloading: "https://github.com/pytorch/vision/zipball/v0.16.0" to /root/.cache/torch/hub/v0.16.0.zip
 /usr/local/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
   warnings.warn(
@@ -255,7 +255,7 @@ After torch.onnx.export
 ```
 - The downloaded and converted model can be viewed as below.
 ```
-vikas_paliwal@9bb247385914:/home$ ls
+user123@9bb247385914:/home$ ls
 densenet121.onnx  docker  torchvision_to_onnx.py  
 
 ```
@@ -284,7 +284,7 @@ through model_path variable, is correct.
 
 - The model can be compiled from the Palette docker using this helper script with the command:`python3 [HELPER_SCRIPT]`
 ```
-vikas_paliwal@9bb247385914:/home$ sudo python3 scripts/densenet121/densenet121.py
+user123@9bb247385914:/home$ sudo python3 scripts/densenet121/densenet121.py
 Model SDK version: 1.1.0
 
 Running calibration ...DONE
@@ -297,13 +297,13 @@ Running quantization ...DONE
 
 - After successful compilation, the resulting files are generated in `result/[MODEL_NAME_CALIBRATION_OPTIONS]/mpk` folder which now has `*.yaml, *.json, *.lm` generated as outputs of compilation. These files together can be used for performance estimation as described in next section.
 ```
-vikas_paliwal@9bb247385914:/home$ ls
-debug.log  docker  models  models.zip  result  scripts	torchvision_to_onnx.py	vikas_paliwal
-vikas_paliwal@9bb247385914:/home$ ls result/
+user123@9bb247385914:/home$ ls
+debug.log  docker  models  models.zip  result  scripts	torchvision_to_onnx.py	user123
+user123@9bb247385914:/home$ ls result/
 densenet121_asym_True_per_ch_True
-vikas_paliwal@9bb247385914:/home$ ls result/densenet121_asym_True_per_ch_True/
+user123@9bb247385914:/home$ ls result/densenet121_asym_True_per_ch_True/
 mpk
-vikas_paliwal@9bb247385914:/home$ ls result/densenet121_asym_True_per_ch_True/mpk
+user123@9bb247385914:/home$ ls result/densenet121_asym_True_per_ch_True/mpk
 densenet121_mpk.tar.gz	densenet121_stage1_mla_compressed.mlc  densenet121_stage1_mla.ifm.mlc  densenet121_stage1_mla.mlc  densenet121_stage1_mla.ofm_chk.mlc
 
 ```
