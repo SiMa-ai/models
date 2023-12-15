@@ -263,6 +263,12 @@ densenet121.onnx  docker  torchvision_to_onnx.py
 - The model is now successully downloaded from Torchvision repository and ready for usage with Palette CLI tools.
 
 
+## Open Model Zoo for OpenVINO ##
+Intel's OpenVINO model zoo offers a helper tool `omz_downloader` to
+download the pretrained models to local system. This comes as part of
+`openvino-dev` package installable via pip command. Follow instructions in [OpenVINO installation guide](https://docs.openvino.ai/2023.2/omz_tools_downloader.html)
+to install `omz_downloader` and download pretrained OpenVINO models.
+
 # Model Calibration/Compilation #
 
 Helper scripts to compile each model are provided through this repository. The
