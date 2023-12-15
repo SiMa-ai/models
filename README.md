@@ -130,7 +130,7 @@ Archive:  SiMa_CLI_1.1.0_master_B40.zip
   inflating: 1.1.0_master_B40/sima-cli/stop.sh 
 ```
 
-The Palette CLI unarchived folder is now available and its contents can be viewed using `ls`. Below steps were done for Palette 1.1 release so, for this release, the folder `1.1.0_master_B5` or something similar must be present. Enter the `1.1.0_master_B5` folder and the `sima-cli` folder in it. Here on listing the contents, scripts for installation (`install.sh`), starting the container (`start.sh`) and stopping the container (`stop.sh`) scripts should be visible. To kickstart the install procedure, issue the `install.sh` command and command line outputs must look similar to below.
+The Palette CLI unarchived folder is now available and its contents can be viewed using `ls`. Below steps were done for Palette 1.1 release so, for this release, the folder `1.1.0_master_B40` or something similar must be present. Enter the `1.1.0_master_B40` folder and the `sima-cli` folder in it. Here on listing the contents, scripts for installation (`install.sh`), starting the container (`start.sh`) and stopping the container (`stop.sh`) scripts should be visible. To kickstart the install procedure, issue the `install.sh` command and command line outputs must look similar to below.
 
 ```
 
@@ -203,7 +203,7 @@ user123@9bb247385914:/home$
 
 # Downloading the Models #
 
-SiMa.ai subset of compatible models references repositories like Torchvison,
+SiMa.ai's subset of compatible models references repositories like Torchvison,
 ONNX model zoo and OpenVINO. These repositories offer pretrained models
 in floating-point 32-bit (FP32) format that need to be quantized and compiled
 for SiMa.ai&#39;s MLSoC using the Palette ModelSDK. To this end, certain helper
@@ -218,7 +218,7 @@ MLSoC.
 [Torchvision](https://pytorch.org/vision/stable/models.html)'s `torchvision.models`subpackage offers ML model architectures
 along with pretrained weights. SiMa.ai's ModelSDK can consume models from
 PyTorch that include the model topology and weights: either using TorchScript,
-or exporting the models to ONNX. Given developers familiarity with ONNX, this
+or exporting the models to ONNX. Given developers' familiarity with ONNX, this
 repository provides a helper script ([torchvision_to_onnx.py](torchvision_to_onnx.py)) to download
 the Torchvision model(s) and convert them to ONNX automatically.
 
@@ -280,7 +280,7 @@ options are provided in Palette CLI User Guide, available through SiMa.ai
 developer zone. After cloning this repository, the user should download the
 model of interest, and access the corresponding script for that model. It is
 important to ensure the path of model file in the helper script, referenced
-through model_path variable, is correct. 
+through `model_path` variable, is correct. 
 
 - The model can be compiled from the Palette docker using this helper script with the command:`python3 [HELPER_SCRIPT]`
 ```
