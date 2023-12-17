@@ -21,7 +21,6 @@
 # SELL ANYTHING THAT IT  MAY DESCRIBE, IN WHOLE OR IN PART.
 #
 # **************************************************************************
-# Author: Sumit Mishra (sumit.mishra@sima.ai)
 
 import os
 import numpy as np
