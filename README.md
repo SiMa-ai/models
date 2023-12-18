@@ -282,6 +282,8 @@ densenet121.onnx  docker  torchvision_to_onnx.py
 
 - The model is now successully downloaded from Torchvision repository and ready for usage with Palette CLI tools.
 
+## ONNX Model Zoo ##
+[ONNX Model Zoo](https://github.com/onnx/models) is a repository of pretrained ML models for various tasks including computer vision.   
 
 ## Open Model Zoo for OpenVINO ##
 Intel's OpenVINO model zoo offers a helper tool `omz_downloader` to
