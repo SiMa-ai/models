@@ -7,7 +7,7 @@ A total of 110+ models are supported[^1] on the SiMa.ai platform as part of [Pal
 
 This Model List:
 
-- Covers Multiple frameworks such as PyTorch and ONNX.
+- Covers multiple frameworks such as PyTorch and ONNX.
 - Draws from various repositories including Torchvision and Open Model Zoo for OpenVINO.
 
 For all 110+ supported models, links/instructions are provided for the pre-trained FP32 models along with compilation scripts and PyTorch to ONNX conversion script.
