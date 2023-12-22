@@ -311,7 +311,8 @@ mobilenetv2-7.onnx               100%[==========================================
 Intel's OpenVINO model zoo offers a helper tool `omz_downloader` to
 download the pretrained models to local system. This comes as part of
 `openvino-dev` package installable via pip command. Follow instructions in [OpenVINO installation guide](https://docs.openvino.ai/2023.2/omz_tools_downloader.html)
-to install `omz_downloader` and download pretrained OpenVINO models.
+to install `omz_downloader` and download pretrained OpenVINO models. In cases where the original pretrained model is in `*.pth` format, it is essential to convert to `*.onnx` format using
+`omz_converter` tool or other PyTorch to ONNX converter tools.
 
 # Model Calibration/Compilation #
 
