@@ -52,7 +52,7 @@ def main(arm_only, asym, per_ch, calibration,
     print(f"Model SDK version: {sdk_version}")
 
     # Model information
-    input_names, input_shape, input_type = ("input", ( 1, 3, 256, 448), ScalarType.float32)
+    input_names, input_shape, input_type = ("data", ( 1, 3, 256, 448), ScalarType.float32)
     args = {'model_path': '', 'shape_dict': '', 'dtype_dict': ''}
     
     if 'shape_dict' in args.keys():
