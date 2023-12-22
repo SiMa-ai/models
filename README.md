@@ -17,14 +17,15 @@ For all 110+ supported models, links/instructions are provided for the pre-train
 engine.
 
 # Model List #
+
 |  Model   |  Framework  |  Input Shape  |  Pretrained Model |  Compilation script |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 |  alexnet   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/alexnet.html ) | [alexnet.py](scripts/alexnet/alexnet.py) | 
-|  bvlcalexnet-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/alexnet/model ) | [bvlcalexnet-7_fp32_224_224.py](scripts/bvlcalexnet-7_fp32_224_224/bvlcalexnet-7_fp32_224_224.py) | 
+|  bvlcalexnet-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/vision/classification/alexnet/model ) | [bvlcalexnet-7_fp32_224_224.py](scripts/bvlcalexnet-7_fp32_224_224/bvlcalexnet-7_fp32_224_224.py) | 
 |  caffenet-9   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/onnx-tensorflow/wiki/ModelZoo-Status-(tag=v1.9.0) ) | [caffenet-9_fp32_224_224.py](scripts/caffenet-9_fp32_224_224/caffenet-9_fp32_224_224.py) | 
 |  ctdet_coco_dlav0_512   |  PyTorch  |  1, 3, 512, 512  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_ctdet_coco_dlav0_512.html ) | [ctdet_coco_dlav0_512.py](scripts/ctdet_coco_dlav0_512/ctdet_coco_dlav0_512.py) | 
-|  densenet-12   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/densenet-121/model ) | [densenet-12_fp32_224_224.py](scripts/densenet-12_fp32_224_224/densenet-12_fp32_224_224.py) | 
-|  densenet-9   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/densenet-121/model ) | [densenet-9_fp32_224_224.py](scripts/densenet-9_fp32_224_224/densenet-9_fp32_224_224.py) | 
+|  densenet-12   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/blob/main/vision/classification/densenet-121/model/densenet-12.onnx ) | [densenet-12_fp32_224_224.py](scripts/densenet-12_fp32_224_224/densenet-12_fp32_224_224.py) | 
+|  densenet-9   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/vision/classification/densenet-121/model ) | [densenet-9_fp32_224_224.py](scripts/densenet-9_fp32_224_224/densenet-9_fp32_224_224.py) | 
 |  densenet121   |  PyTorch  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/densenet.html ) | [densenet121.py](scripts/densenet121/densenet121.py) | 
 |  densenet121   |  ONNX  |  1, 3, 224, 224  |  [Torchvision Link]( https://pytorch.org/vision/main/models/densenet.html ) | [densenet121.py](scripts/densenet121/densenet121.py) | 
 |  densenet161   |  PyTorch  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/densenet.html ) | [densenet161.py](scripts/densenet161/densenet161.py) | 
@@ -45,11 +46,11 @@ engine.
 |  efficientnet_v2_m   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/efficientnet.html ) | [efficientnet_v2_m.py](scripts/efficientnet_v2_m/efficientnet_v2_m.py) | 
 |  efficientnet_v2_s   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/efficientnet.html ) | [efficientnet_v2_s.py](scripts/efficientnet_v2_s/efficientnet_v2_s.py) | 
 |  efficientnet-b0-pytorch   |  PyTorch  |  1, 3, 224, 224  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_efficientnet_b0_pytorch.html ) | [efficientnet-b0-pytorch.py](scripts/efficientnet-b0-pytorch/efficientnet-b0-pytorch.py) | 
-|  efficientnet-lite4-11   |  ONNX  |  1, 224, 224, 3  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/efficientnet-lite4/model ) | [efficientnet-lite4-11_fp32_224_224.py](scripts/efficientnet-lite4-11_fp32_224_224/efficientnet-lite4-11_fp32_224_224.py) | 
+|  efficientnet-lite4-11   |  ONNX  |  1, 224, 224, 3  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/vision/classification/efficientnet-lite4 ) | [efficientnet-lite4-11_fp32_224_224.py](scripts/efficientnet-lite4-11_fp32_224_224/efficientnet-lite4-11_fp32_224_224.py) | 
 |  efficientnet-v2-b0   |  PyTorch  |  1, 3, 224, 224  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_efficientnet_v2_b0.html ) | [efficientnet-v2-b0.py](scripts/efficientnet-v2-b0/efficientnet-v2-b0.py) | 
 |  efficientnet-v2-s   |  PyTorch  |  1, 224, 224, 3  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_efficientnet_v2_s.html ) | [efficientnet-v2-s.py](scripts/efficientnet-v2-s/efficientnet-v2-s.py) | 
 |  erfnet   |  PyTorch  |  1, 3, 208, 976  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_erfnet.html ) | [erfnet.py](scripts/erfnet/erfnet.py) | 
-|  googlenet-9   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/inception_and_googlenet/googlenet/model ) | [googlenet-9_fp32_224_224.py](scripts/googlenet-9_fp32_224_224/googlenet-9_fp32_224_224.py) | 
+|  googlenet-9   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/vision/classification/inception_and_googlenet/googlenet/model ) | [googlenet-9_fp32_224_224.py](scripts/googlenet-9_fp32_224_224/googlenet-9_fp32_224_224.py) | 
 |  higher-hrnet-w32-human-pose-estimation   |  PyTorch  |  1, 3, 512, 512  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_higher_hrnet_w32_human_pose_estimation.html ) | [higher-hrnet-w32-human-pose-estimation.py](scripts/higher-hrnet-w32-human-pose-estimation/higher-hrnet-w32-human-pose-estimation.py) | 
 |  human-pose-estimation-3d-0001   |  PyTorch  |  1, 3, 256, 448  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_human_pose_estimation_3d_0001.html ) | [human-pose-estimation-3d-0001.py](scripts/human-pose-estimation-3d-0001/human-pose-estimation-3d-0001.py) | 
 |  mnasnet0_5   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/mnasnet.html ) | [mnasnet0_5.py](scripts/mnasnet0_5/mnasnet0_5.py) | 
@@ -57,19 +58,21 @@ engine.
 |  mnasnet1_0   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/mnasnet.html ) | [mnasnet1_0.py](scripts/mnasnet1_0/mnasnet1_0.py) | 
 |  mnasnet1_3   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/mnasnet.html ) | [mnasnet1_3.py](scripts/mnasnet1_3/mnasnet1_3.py) | 
 |  mobilenet_v2   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/mobilenetv2.html ) | [mobilenet_v2.py](scripts/mobilenet_v2/mobilenet_v2.py) | 
-|  mobilenet-v1-0_25-128   |  TensorFlow  |  1, 128, 128, 3  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_mobilenet_v1_0_25_128.html ) | [mobilenet-v1-0_25-128.py](scripts/mobilenet-v1-0_25-128/mobilenet-v1-0_25-128.py) | 
-|  mobilenet-v2-1_0-224   |  TensorFlow  |  1, 224, 224, 3  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_mobilenet_v2_1_0_224.html ) | [mobilenet-v2-1_0-224.py](scripts/mobilenet-v2-1_0-224/mobilenet-v2-1_0-224.py) | 
-|  mobilenet-v2-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/mobilenet/model ) | [mobilenet-v2-7_fp32_224_224.py](scripts/mobilenet-v2-7_fp32_224_224/mobilenet-v2-7_fp32_224_224.py) | 
+|  mobilenet-v1-0.25-128   |  TensorFlow  |  1, 128, 128, 3  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_mobilenet_v1_0_25_128.html ) | [mobilenet-v1-0_25-128.py](scripts/mobilenet-v1-0.25-128/mobilenet-v1-0_25-128.py) | 
+|  mobilenet-v1-1.0-224-tf   |  TensorFlow  |  1, 224, 224, 3  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_mobilenet_v1_1_0_224_tf.html ) | [mobilenet-v1-1_0-224-tf.py](scripts/mobilenet-v1-1.0-224-tf/mobilenet-v1-1_0-224-tf.py) | 
+|  mobilenet-v2-1.0-224   |  TensorFlow  |  1, 224, 224, 3  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_mobilenet_v2_1_0_224.html ) | [mobilenet-v2-1_0-224.py](scripts/mobilenet-v2-1.0-224/mobilenet-v2-1_0-224.py) | 
+|  mobilenet-v2-1.4-224   |  TensorFlow  |  1, 224, 224, 3  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_mobilenet_v2_1_4_224.html ) | [mobilenet-v2-1_4-224.py](scripts/mobilenet-v2-1.4-224/mobilenet-v2-1_4-224.py) | 
+|  mobilenet-v2-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/vision/classification/mobilenet ) | [mobilenet-v2-7_fp32_224_224.py](scripts/mobilenet-v2-7_fp32_224_224/mobilenet-v2-7_fp32_224_224.py) | 
 |  mobilenet-v2-pytorch   |  PyTorch  |  1, 3, 224, 224  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_mobilenet_v2_pytorch.html ) | [mobilenet-v2-pytorch.py](scripts/mobilenet-v2-pytorch/mobilenet-v2-pytorch.py) | 
 |  mobilenet-yolo-v4-syg   |  Keras  |  1, 416, 416, 3  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_mobilenet_yolo_v4_syg.html ) | [mobilenet-yolo-v4-syg.py](scripts/mobilenet-yolo-v4-syg/mobilenet-yolo-v4-syg.py) | 
-|  mobilenetv2-12   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/mobilenet/model ) | [mobilenetv2-12_fp32_224_224.py](scripts/mobilenetv2-12_fp32_224_224/mobilenetv2-12_fp32_224_224.py) | 
+|  mobilenetv2-12   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/blob/main/vision/classification/mobilenet/model/mobilenetv2-12.onnx ) | [mobilenetv2-12_fp32_224_224.py](scripts/mobilenetv2-12_fp32_224_224/mobilenetv2-12_fp32_224_224.py) | 
 |  nfnet-f0   |  PyTorch  |  1, 3, 256, 256  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_nfnet_f0.html ) | [nfnet-f0.py](scripts/nfnet-f0/nfnet-f0.py) | 
 |  quantized_mobilenet_v2   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/mobilenetv2_quant.html ) | [quantized_mobilenet_v2.py](scripts/quantized_mobilenet_v2/quantized_mobilenet_v2.py) | 
 |  quantized_resnet18   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/resnet_quant.html ) | [quantized_resnet18.py](scripts/quantized_resnet18/quantized_resnet18.py) | 
 |  quantized_resnet50   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/resnet_quant.html ) | [quantized_resnet50.py](scripts/quantized_resnet50/quantized_resnet50.py) | 
 |  quantized_resnext101_32x8d   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/resnext_quant.html ) | [quantized_resnext101_32x8d.py](scripts/quantized_resnext101_32x8d/quantized_resnext101_32x8d.py) | 
 |  quantized_resnext101_64x4d   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/resnext_quant.html ) | [quantized_resnext101_64x4d.py](scripts/quantized_resnext101_64x4d/quantized_resnext101_64x4d.py) | 
-|  rcnn-ilsvrc13-9   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/rcnn_ilsvrc13/model ) | [rcnn-ilsvrc13-9_fp32_224_224.py](scripts/rcnn-ilsvrc13-9_fp32_224_224/rcnn-ilsvrc13-9_fp32_224_224.py) | 
+|  rcnn-ilsvrc13-9   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/vision/classification/rcnn_ilsvrc13/model ) | [rcnn-ilsvrc13-9_fp32_224_224.py](scripts/rcnn-ilsvrc13-9_fp32_224_224/rcnn-ilsvrc13-9_fp32_224_224.py) | 
 |  regnet_x_1_6gf   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/regnet.html ) | [regnet_x_1_6gf.py](scripts/regnet_x_1_6gf/regnet_x_1_6gf.py) | 
 |  regnet_x_16gf   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/regnet.html ) | [regnet_x_16gf.py](scripts/regnet_x_16gf/regnet_x_16gf.py) | 
 |  regnet_x_3_2gf   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/regnet.html ) | [regnet_x_3_2gf.py](scripts/regnet_x_3_2gf/regnet_x_3_2gf.py) | 
@@ -81,6 +84,7 @@ engine.
 |  regnet_y_3_2gf   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/regnet.html ) | [regnet_y_3_2gf.py](scripts/regnet_y_3_2gf/regnet_y_3_2gf.py) | 
 |  regnet_y_400mf   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/regnet.html ) | [regnet_y_400mf.py](scripts/regnet_y_400mf/regnet_y_400mf.py) | 
 |  regnet_y_800mf   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/regnet.html ) | [regnet_y_800mf.py](scripts/regnet_y_800mf/regnet_y_800mf.py) | 
+|  regnetx-3.2gf   |  PyTorch  |  1, 3, 224, 224  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_regnetx_3_2gf.html ) | [regnetx-3_2gf.py](scripts/regnetx-3.2gf/regnetx-3_2gf.py) | 
 |  repvgg-a0   |  PyTorch  |  1, 3, 224, 224  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_repvgg_a0.html ) | [repvgg-a0.py](scripts/repvgg-a0/repvgg-a0.py) | 
 |  repvgg-b1   |  PyTorch  |  1, 3, 224, 224  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_repvgg_b1.html ) | [repvgg-b1.py](scripts/repvgg-b1/repvgg-b1.py) | 
 |  repvgg-b3   |  PyTorch  |  1, 3, 224, 224  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_repvgg_b3.html ) | [repvgg-b3.py](scripts/repvgg-b3/repvgg-b3.py) | 
@@ -90,18 +94,18 @@ engine.
 |  resnet-50-tf   |  TensorFlow  |  1, 224, 224, 3  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_resnet_50_tf.html ) | [resnet-50-tf.py](scripts/resnet-50-tf/resnet-50-tf.py) | 
 |  resnet101   |  PyTorch  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/generated/torchvision.models.resnet101.html ) | [resnet101.py](scripts/resnet101/resnet101.py) | 
 |  resnet101   |  ONNX  |  1, 3, 224, 224  |  [Torchvision Link]( https://pytorch.org/vision/main/models/resnet.html ) | [resnet101.py](scripts/resnet101/resnet101.py) | 
-|  resnet101-v1-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/resnet/model ) | [resnet101-v1-7_fp32_224_224.py](scripts/resnet101-v1-7_fp32_224_224/resnet101-v1-7_fp32_224_224.py) | 
+|  resnet101-v1-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/blob/main/vision/classification/resnet/model/resnet101-v1-7.onnx ) | [resnet101-v1-7_fp32_224_224.py](scripts/resnet101-v1-7_fp32_224_224/resnet101-v1-7_fp32_224_224.py) | 
 |  resnet152   |  PyTorch  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/generated/torchvision.models.resnet152.html ) | [resnet152.py](scripts/resnet152/resnet152.py) | 
 |  resnet152   |  ONNX  |  1, 3, 224, 224  |  [Torchvision Link]( https://pytorch.org/vision/main/models/resnet.html ) | [resnet152.py](scripts/resnet152/resnet152.py) | 
-|  resnet152-v1-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/resnet/model ) | [resnet152-v1-7_fp32_224_224.py](scripts/resnet152-v1-7_fp32_224_224/resnet152-v1-7_fp32_224_224.py) | 
+|  resnet152-v1-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/blob/main/vision/classification/resnet/model/resnet152-v1-7.onnx ) | [resnet152-v1-7_fp32_224_224.py](scripts/resnet152-v1-7_fp32_224_224/resnet152-v1-7_fp32_224_224.py) | 
 |  resnet18   |  PyTorch  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/generated/torchvision.models.resnet18.html ) | [resnet18.py](scripts/resnet18/resnet18.py) | 
 |  resnet18   |  ONNX  |  1, 3, 224, 224  |  [Torchvision Link]( https://pytorch.org/vision/main/models/resnet.html ) | [resnet18.py](scripts/resnet18/resnet18.py) | 
 |  resnet34   |  PyTorch  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/generated/torchvision.models.resnet34.html ) | [resnet34.py](scripts/resnet34/resnet34.py) | 
 |  resnet34   |  ONNX  |  1, 3, 224, 224  |  [Torchvision Link]( https://pytorch.org/vision/main/models/resnet.html ) | [resnet34.py](scripts/resnet34/resnet34.py) | 
 |  resnet50   |  ONNX  |  1, 3, 224, 224  |  [Torchvision Link]( https://pytorch.org/vision/main/models/resnet.html ) | [resnet50.py](scripts/resnet50/resnet50.py) | 
-|  resnet50-v1-12   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/resnet/model ) | [resnet50-v1-12_fp32_224_224.py](scripts/resnet50-v1-12_fp32_224_224/resnet50-v1-12_fp32_224_224.py) | 
-|  resnet50-v1-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/resnet/model ) | [resnet50-v1-7_fp32_224_224.py](scripts/resnet50-v1-7_fp32_224_224/resnet50-v1-7_fp32_224_224.py) | 
-|  resnet50-v2-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/resnet/model ) | [resnet50-v2-7_fp32_224_224.py](scripts/resnet50-v2-7_fp32_224_224/resnet50-v2-7_fp32_224_224.py) | 
+|  resnet50-v1-12   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/blob/main/vision/classification/resnet/model/resnet50-v1-12.onnx ) | [resnet50-v1-12_fp32_224_224.py](scripts/resnet50-v1-12_fp32_224_224/resnet50-v1-12_fp32_224_224.py) | 
+|  resnet50-v1-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/blob/main/vision/classification/resnet/README.md ) | [resnet50-v1-7_fp32_224_224.py](scripts/resnet50-v1-7_fp32_224_224/resnet50-v1-7_fp32_224_224.py) | 
+|  resnet50-v2-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/blob/main/vision/classification/resnet/README.md ) | [resnet50-v2-7_fp32_224_224.py](scripts/resnet50-v2-7_fp32_224_224/resnet50-v2-7_fp32_224_224.py) | 
 |  resnext101_32x8d   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/resnext.html ) | [resnext101_32x8d.py](scripts/resnext101_32x8d/resnext101_32x8d.py) | 
 |  resnext101_64x4d   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/resnext.html ) | [resnext101_64x4d.py](scripts/resnext101_64x4d/resnext101_64x4d.py) | 
 |  resnext50_32x4d   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/resnext.html ) | [resnext50_32x4d.py](scripts/resnext50_32x4d/resnext50_32x4d.py) | 
@@ -114,12 +118,12 @@ engine.
 |  vgg13_bn   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/vgg.html ) | [vgg13_bn.py](scripts/vgg13_bn/vgg13_bn.py) | 
 |  vgg16   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/vgg.html ) | [vgg16.py](scripts/vgg16/vgg16.py) | 
 |  vgg16_bn   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/vgg.html ) | [vgg16_bn.py](scripts/vgg16_bn/vgg16_bn.py) | 
-|  vgg16-bn-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/vgg/model ) | [vgg16-bn-7_fp32_224_224.py](scripts/vgg16-bn-7_fp32_224_224/vgg16-bn-7_fp32_224_224.py) | 
+|  vgg16-bn-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/blob/main/vision/classification/vgg/model/vgg16-bn-7.onnx ) | [vgg16-bn-7_fp32_224_224.py](scripts/vgg16-bn-7_fp32_224_224/vgg16-bn-7_fp32_224_224.py) | 
 |  vgg19   |  PyTorch  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/0.12/generated/torchvision.models.vgg19.html ) | [vgg19.py](scripts/vgg19/vgg19.py) | 
 |  vgg19   |  ONNX  |  1, 3, 224, 224  |  [Torchvision Link]( https://pytorch.org/vision/main/models/vgg.html ) | [vgg19.py](scripts/vgg19/vgg19.py) | 
 |  vgg19_bn   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/vgg.html ) | [vgg19_bn.py](scripts/vgg19_bn/vgg19_bn.py) | 
-|  vgg19-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/vgg/model ) | [vgg19-7_fp32_224_224.py](scripts/vgg19-7_fp32_224_224/vgg19-7_fp32_224_224.py) | 
-|  vgg19-bn-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/vgg/model ) | [vgg19-bn-7_fp32_224_224.py](scripts/vgg19-bn-7_fp32_224_224/vgg19-bn-7_fp32_224_224.py) | 
+|  vgg19-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/blob/main/vision/classification/vgg/model/vgg19-7.onnx ) | [vgg19-7_fp32_224_224.py](scripts/vgg19-7_fp32_224_224/vgg19-7_fp32_224_224.py) | 
+|  vgg19-bn-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/vision/classification/vgg/model ) | [vgg19-bn-7_fp32_224_224.py](scripts/vgg19-bn-7_fp32_224_224/vgg19-bn-7_fp32_224_224.py) | 
 |  wide_resnet101_2   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/wide_resnet.html ) | [wide_resnet101_2.py](scripts/wide_resnet101_2/wide_resnet101_2.py) | 
 |  wide_resnet50_2   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/wide_resnet.html ) | [wide_resnet50_2.py](scripts/wide_resnet50_2/wide_resnet50_2.py) | 
 |  yolo-v2-tiny-tf   |  TensorFlow  |  1, 416, 416, 3  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_yolo_v2_tiny_tf.html ) | [yolo-v2-tiny-tf.py](scripts/yolo-v2-tiny-tf/yolo-v2-tiny-tf.py) | 
@@ -128,8 +132,7 @@ engine.
 |  yolo-v4-tf   |  TensorFlow  |  1, 416, 416, 3  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_yolo_v4_tf.html ) | [yolo-v4-tf.py](scripts/yolo-v4-tf/yolo-v4-tf.py) | 
 |  yolo-v4-tiny-tf   |  Keras  |  1, 416, 416, 3  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_yolo_v4_tiny_tf.html ) | [yolo-v4-tiny-tf.py](scripts/yolo-v4-tiny-tf/yolo-v4-tiny-tf.py) | 
 |  yolof   |  PyTorch  |  1, 3, 608, 608  |  [OpenVINO Link]( https://docs.openvino.ai/2023.0/omz_models_model_yolof.html ) | [yolof.py](scripts/yolof/yolof.py) | 
-|  zfnet512-9   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/archive/vision/classification/zfnet-512/model ) | [zfnet512-9_fp32_224_224.py](scripts/zfnet512-9_fp32_224_224/zfnet512-9_fp32_224_224.py) | 
-
+|  zfnet512-9   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/onnx-tensorflow/wiki/ModelZoo-Status-(tag=v1.9.0)#24-zfnet-512 ) | [zfnet512-9_fp32_224_224.py](scripts/zfnet512-9_fp32_224_224/zfnet512-9_fp32_224_224.py) | 
 
 # Palette Setup #
 
@@ -283,7 +286,26 @@ densenet121.onnx  docker  torchvision_to_onnx.py
 - The model is now successully downloaded from Torchvision repository and ready for usage with Palette CLI tools.
 
 ## ONNX Model Zoo ##
-[ONNX Model Zoo](https://github.com/onnx/models) is a repository of pretrained ML models for various tasks including computer vision.   
+[ONNX Model Zoo](https://github.com/onnx/models) is a repository of pretrained ML models for various tasks including computer vision. 
+In order to download a Palette-supported pretrained model from ONNX model zoo, the link provided in the **Model List** section above can be used.
+Palette CLI SDK has been verified against the model version (indicated by the model name suffix) and it is recommended to download the correct version from the ONNX model zoo. 
+For example, to download `zfnet512-9` model from ONNX model zoo, the correct version can be located at the link provided in table above 
+and the ONNX model can either be manually downloaded or using the `wget` as shown below.
+
+```
+root@instance-1:/home/user123/Downloads/1.1.0_master_B40/sima-cli# wget https://github.com/onnx/models/blob/main/archive/vision/classification/mobilenet/model/mobilenetv2-7.onnx
+--2023-12-22 01:55:36--  https://github.com/onnx/models/blob/main/archive/vision/classification/mobilenet/model/mobilenetv2-7.onnx
+Resolving github.com (github.com)... 140.82.112.4
+Connecting to github.com (github.com)|140.82.112.4|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 10145 (9.9K) [text/plain]
+Saving to: ‘mobilenetv2-7.onnx’
+
+mobilenetv2-7.onnx               100%[=========================================================>]   9.91K  --.-KB/s    in 0s      
+
+2023-12-22 01:55:37 (75.9 MB/s) - ‘mobilenetv2-7.onnx’ saved [10145/10145]
+
+```
 
 ## Open Model Zoo for OpenVINO ##
 Intel's OpenVINO model zoo offers a helper tool `omz_downloader` to
