@@ -26,43 +26,20 @@ import os
 import numpy as np
 import dataclasses
 
-from afe.load.importers.general_importer import ImporterParams, onnx_source
+from afe.load.importers.general_importer import ModelFormat, ImporterParams, tflite_source
 from afe.apis.defines import QuantizationParams, quantization_scheme, default_calibration, CalibrationMethod
 from afe.apis.release_v1 import get_model_sdk_version
 from afe.apis.loaded_net import load_model
 from afe.apis.model import Model
 from afe.apis.error_handling_variables import enable_verbose_error_messages
 from afe.backends.mpk.interface import L2CachingMode
-from afe.ir.tensor_type import scalar_type_from_dtype, scalar_type_to_dtype
+from afe.ir.defines import InputName
+from afe.ir.tensor_type import ScalarType
 
 
 # Helper function to construct ImporterParams for the model to be loaded
 def _get_import_params(*args, **kwargs):
-    framework = "onnx"
-    layout = "NCHW"
-    if framework == "onnx" and layout == "NHWC":
-        from afe.load.importers.general_importer import ModelFormat
-        model_path = kwargs["model_path"]
-        shape_dict = kwargs["shape_dict"]
-        dtype_dict = kwargs["dtype_dict"]
-        input_names = list()
-        input_shape = list()
-        input_type = list()
-        for k, v in shape_dict.items():
-            input_names.append(k)
-            input_shape.append(v)
-
-        for v in dtype_dict.values():
-            input_type.append(v)
-
-        params = ImporterParams(format=ModelFormat.onnx,
-                                file_paths=[model_path],
-                                input_names=input_names,
-                                input_shapes=input_shape,
-                                input_types=input_type,
-                                layout=layout)
-    else:
-        params = onnx_source(*args, **kwargs)
+    params = tflite_source(*args, **kwargs)
     return params
 
 
@@ -75,42 +52,35 @@ def main(arm_only, asym, per_ch, calibration,
     print(f"Model SDK version: {sdk_version}")
 
     # Model information
-    input_names = ['data']
-    input_shapes = [[1, 3, 224, 224]]
-    input_dtypes = [scalar_type_from_dtype("float32")]
-    assert len(input_names) == len(input_shapes)
-    args = {'model_path': 'models/vgg16-bn-7_fp32_224_224.onnx', 'shape_dict': '', 'dtype_dict': ''}
+    input_names, input_shape, input_type = ("input", (1, 224, 224, 3), ScalarType.float32)
+    args = {'model_path': '', 'shape_dict': '', 'dtype_dict': ''}
+    
     if 'shape_dict' in args.keys():
-        shape_dict = {name: shape for name, shape in zip(input_names, input_shapes)}
+        if type(input_names) is list:
+            shape_dict = {input_name: input_shape for input_name in input_names}
+        else:
+            shape_dict = {input_names: input_shape}
         args['shape_dict'] = shape_dict
     if 'dtype_dict' in args.keys():
-        dtype_dict = {name: dtype for name, dtype in zip(input_names, input_dtypes)}
+        if type(input_names) is list:
+            dtype_dict = {input_name: input_type for input_name in input_names}
+        else:
+            dtype_dict = {input_names: input_type}
         args['dtype_dict'] = dtype_dict
+    if 'model_path' in args.keys():
+        args['model_path'] = "models/mobilenet_v1_1.0_224.tflite"
+        
     print(args)
     # Load a model and the result is a LoadedNet
     params = _get_import_params(**args)
     loaded_net = load_model(params)
+    if type(input_names) is not list:
+        inputs = {InputName(input_names): np.random.rand(1, 224, 224, 3)}
+    else:
+        inputs = {InputName(input_name): np.random.rand(1, 224, 224, 3) for input_name in input_names}
+    
 
-    # reset random seed for input data generation
-    np.random.seed(123)
-
-    # Prepare input data
-    inputs = dict()
-    for i, input_name in enumerate(input_names):
-        input_shape = input_shapes[i]
-        input_dtype = input_dtypes[i]
-        sample_input = np.random.rand(*input_shape).astype(scalar_type_to_dtype(input_dtype))
-        inputs[input_name] = sample_input
-
-    layout = "NCHW"
-    if layout == "NCHW":
-        for k, v in inputs.items():
-            inputs[k] = np.transpose(v, [0, 2, 3, 1])
-
-    # Execute the loaded net
-    loaded_net_output = loaded_net.execute(inputs)
-
-    #Quntize the loaded net and the result is a quantized SDK Model net
+    # Quantize the loaded net and the result is a quantized SDK Model net
     calibration_data = [inputs]
     quant_configs: QuantizationParams = QuantizationParams(calibration_method=default_calibration(),
                                                            activation_quantization_scheme=quantization_scheme(asym, False),
@@ -126,17 +96,13 @@ def main(arm_only, asym, per_ch, calibration,
     sdk_net = loaded_net.quantize(
         calibration_data=calibration_data,
         quantization_config=quant_configs,
-        model_name="vgg16-bn-7_fp32_224_224",
+        model_name="mobilenet-v1-1.0-224-tf",
         arm_only=arm_only
     )
     # Execute the quantized net
     sdk_net_output = sdk_net.execute(inputs=inputs)
 
-    # Compare outputs of the loaded net and quantized SDK net
-    for load_o, sdk_o in zip(loaded_net_output, sdk_net_output):
-        max_err = np.max(abs(load_o.astype(np.float32) - sdk_o.astype(np.float32)))
-        print(f"Max absolute error between outputs of loaded net and quantized net = {max_err}")
-    saved_model_name = f"vgg16-bn-7_fp32_224_224_asym_{asym}_per_ch_{per_ch}"
+    saved_model_name = f"mobilenet-v1-1.0-224-tf_asym_{asym}_per_ch_{per_ch}"
     if load_net:
         # Save the SDK net and two files are generated: sima model file and JSON file for Netron
         # Extension ".sima" is added internally if not present in the provided name
@@ -145,7 +111,7 @@ def main(arm_only, asym, per_ch, calibration,
         sdk_net.save(model_name=saved_model_name, output_directory=saved_model_directory)
 
         # Load a saved net - note that sima extention is optional
-        load_model_name = f"vgg16-bn-7_fp32_224_224_asym_{asym}_per_ch_{per_ch}.sima"
+        load_model_name = f"mobilenet-v1-1.0-224-tf_asym_{asym}_per_ch_{per_ch}.sima"
         net_read_back = Model.load(model_name=load_model_name, network_directory=saved_model_directory)
         assert isinstance(net_read_back, Model)
 

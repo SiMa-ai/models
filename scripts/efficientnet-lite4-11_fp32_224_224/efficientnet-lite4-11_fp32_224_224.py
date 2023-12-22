@@ -79,7 +79,7 @@ def main(arm_only, asym, per_ch, calibration,
     input_shapes = [[1, 224, 224, 3]]
     input_dtypes = [scalar_type_from_dtype("float32")]
     assert len(input_names) == len(input_shapes)
-    args1 = {'model_path': 'models/UR_onnx_efficientnet-lite4-11_fp32_224_224.onnx', 'shape_dict': '', 'dtype_dict': ''}
+    args = {'model_path': 'models/efficientnet-lite4-11_fp32_224_224.onnx', 'shape_dict': '', 'dtype_dict': ''}
     if 'shape_dict' in args.keys():
         shape_dict = {name: shape for name, shape in zip(input_names, input_shapes)}
         args['shape_dict'] = shape_dict
@@ -126,7 +126,7 @@ def main(arm_only, asym, per_ch, calibration,
     sdk_net = loaded_net.quantize(
         calibration_data=calibration_data,
         quantization_config=quant_configs,
-        model_name="UR_onnx_efficientnet-lite4-11_fp32_224_224",
+        model_name="efficientnet-lite4-11_fp32_224_224",
         arm_only=arm_only
     )
     # Execute the quantized net
@@ -136,7 +136,7 @@ def main(arm_only, asym, per_ch, calibration,
     for load_o, sdk_o in zip(loaded_net_output, sdk_net_output):
         max_err = np.max(abs(load_o.astype(np.float32) - sdk_o.astype(np.float32)))
         print(f"Max absolute error between outputs of loaded net and quantized net = {max_err}")
-    saved_model_name = f"UR_onnx_efficientnet-lite4-11_fp32_224_224_asym_{asym}_per_ch_{per_ch}"
+    saved_model_name = f"efficientnet-lite4-11_fp32_224_224_asym_{asym}_per_ch_{per_ch}"
     if load_net:
         # Save the SDK net and two files are generated: sima model file and JSON file for Netron
         # Extension ".sima" is added internally if not present in the provided name
@@ -145,7 +145,7 @@ def main(arm_only, asym, per_ch, calibration,
         sdk_net.save(model_name=saved_model_name, output_directory=saved_model_directory)
 
         # Load a saved net - note that sima extention is optional
-        load_model_name = f"UR_onnx_efficientnet-lite4-11_fp32_224_224_asym_{asym}_per_ch_{per_ch}.sima"
+        load_model_name = f"efficientnet-lite4-11_fp32_224_224_asym_{asym}_per_ch_{per_ch}.sima"
         net_read_back = Model.load(model_name=load_model_name, network_directory=saved_model_directory)
         assert isinstance(net_read_back, Model)
 
