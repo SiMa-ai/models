@@ -289,7 +289,7 @@ densenet121.onnx  docker  torchvision_to_onnx.py
 [ONNX Model Zoo](https://github.com/onnx/models) is a repository of pretrained ML models for various tasks including computer vision. 
 In order to download a Palette-supported pretrained model from ONNX model zoo, the link provided in the **Model List** section above can be used.
 Palette CLI SDK has been verified against the model version (indicated by the model name suffix) and it is recommended to download the correct version from the ONNX model zoo. 
-For example, to download `zfnet512-9` model from ONNX model zoo, the correct version can be located at the link provided in table above 
+For example, to download `mobilenetv2-7` model from ONNX model zoo, the correct version can be located at the link provided in table above 
 and the ONNX model can either be manually downloaded or using the `wget` as shown below.
 
 ```
