@@ -340,7 +340,7 @@ Running quantization ...DONE
 
 ```
 
-- After successful compilation, the resulting files are generated in `result/[MODEL_NAME_CALIBRATION_OPTIONS]/mpk` folder which now has `*.yaml, *.json, *.lm` generated as outputs of compilation. These files together can be used for performance estimation as described in next section.
+- After successful compilation, the resulting files are generated in `result/[MODEL_NAME_CALIBRATION_OPTIONS]/mpk` folder which now has `*.yaml, *.json, *.lm` generated as outputs of compilation. These files together can be used for performance estimation as described in the Palette User Guide available as part of [Palette CLI 1.1 SDK](https://bit.ly/41q4tQT).
 ```
 user123@9bb247385914:/home$ ls
 debug.log  docker  models  models.zip  result  scripts	torchvision_to_onnx.py	user123
