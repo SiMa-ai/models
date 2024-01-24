@@ -122,7 +122,7 @@ engine.
 |  vgg19   |  PyTorch  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/0.12/generated/torchvision.models.vgg19.html ) | [vgg19.py](scripts/vgg19/vgg19.py) | 
 |  vgg19   |  ONNX  |  1, 3, 224, 224  |  [Torchvision Link]( https://pytorch.org/vision/main/models/vgg.html ) | [vgg19.py](scripts/vgg19/vgg19.py) | 
 |  vgg19_bn   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/vgg.html ) | [vgg19_bn.py](scripts/vgg19_bn/vgg19_bn.py) | 
-|  vgg19-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/blob/main/vision/classification/vgg/model/vgg19-7.onnx ) | [vgg19-7_fp32_224_224.py](scripts/vgg19-7_fp32_224_224/vgg19-7_fp32_224_224.py) | 
+|  vgg19-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/validated/vision/classification/vgg/model ) | [vgg19-7_fp32_224_224.py](scripts/vgg19-7_fp32_224_224/vgg19-7_fp32_224_224.py) | 
 |  vgg19-bn-7   |  ONNX  |  1, 3, 224, 224  |  [ONNX Zoo Link]( https://github.com/onnx/models/tree/main/validated/vision/classification/vgg/model ) | [vgg19-bn-7_fp32_224_224.py](scripts/vgg19-bn-7_fp32_224_224/vgg19-bn-7_fp32_224_224.py) | 
 |  wide_resnet101_2   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/wide_resnet.html ) | [wide_resnet101_2.py](scripts/wide_resnet101_2/wide_resnet101_2.py) | 
 |  wide_resnet50_2   |  ONNX  |  1, 224, 224, 3  |  [Torchvision Link]( https://pytorch.org/vision/main/models/wide_resnet.html ) | [wide_resnet50_2.py](scripts/wide_resnet50_2/wide_resnet50_2.py) | 
